@@ -346,7 +346,7 @@
                                         <a href="{{ __url($recentPost->first()->encode_title) }}"
                                             class="line-clamp-2 text-gray-600 dark:text-white hover:text-brand-primary dark:hover:text-brand-primary font-bold text-lg leading-6 transition_3">
                                             {{ $recentPost->first()->title }}
-                                        </a>
+                                        </a>    
                                         <p class="line-clamp-3 dark:text-neutral-400">
                                             {{ clean_news_content($recentPost->first()->details) }}
                                         </p>
@@ -366,7 +366,7 @@
                                     <!-- bottom news list -->
                                     @if ($recentPost->slice(1)->isNotEmpty())
                                         @foreach ($recentPost->slice(1) as $recentPostItem)
-                                            <a class="block pt-2" href="{{ __url($recentPostItem->encode_title) }}">
+                                            {{-- <a class="block pt-2" href="{{ __url($recentPostItem->encode_title) }}">
                                                 <div class="grid grid-cols-3 gap-2 items-center">
                                                     <figure class="w-full h-20">
                                                         <img class="w-full h-full object-cover"
@@ -378,7 +378,7 @@
                                                         {{ $recentPostItem->title }}
                                                     </h2>
                                                 </div>
-                                            </a>
+                                            </a> --}}
                                         @endforeach
                                     @endif
                                 </div>

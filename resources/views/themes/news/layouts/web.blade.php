@@ -98,7 +98,7 @@
     <section class="container hidden xl:flex justify-between items-center my-2">
         <!-- Brand Logo -->
         <a class="hidden dark:block w-52 h-10 flex_center overflow-hidden" href="{{ __url('/') }}">
-            <img src="{{ app_setting()->footer_logo }}" alt="" />
+            <img class="h-12 pt-1" src="{{ app_setting()->footer_logo }}" alt="" />
         </a>
         <a class="dark:hidden w-52 h-10 flex_center overflow-hidden" href="{{ __url('/') }}">
             <img class="h-12 pt-1" src="{{ app_setting()->logo }}" alt="" />

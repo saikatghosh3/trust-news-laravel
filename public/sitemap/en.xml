@@ -1,151 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost/trust</loc>
-    <lastmod>2025-09-13</lastmod>
+    <loc>http://127.0.0.1:8000</loc>
+    <lastmod>2025-09-15</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/International/</loc>
+    <loc>http://127.0.0.1:8000/category/International/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/travel/</loc>
+    <loc>http://127.0.0.1:8000/category/travel/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/crime/</loc>
+    <loc>http://127.0.0.1:8000/category/crime/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/national/</loc>
+    <loc>http://127.0.0.1:8000/category/national/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/crime/</loc>
+    <loc>http://127.0.0.1:8000/category/crime/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/International/</loc>
+    <loc>http://127.0.0.1:8000/category/International/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/travel/</loc>
+    <loc>http://127.0.0.1:8000/category/travel/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/business/</loc>
+    <loc>http://127.0.0.1:8000/category/business/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/technology/</loc>
+    <loc>http://127.0.0.1:8000/category/technology/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/environment/</loc>
+    <loc>http://127.0.0.1:8000/category/environment/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/national/</loc>
+    <loc>http://127.0.0.1:8000/category/national/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/Terms-and-Conditions/</loc>
+    <loc>http://127.0.0.1:8000/category/Terms-and-Conditions/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/category/about/</loc>
+    <loc>http://127.0.0.1:8000/category/about/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/usjapantradedealputspressureonbangladeshastariffdeadlinenearseee/</loc>
+    <loc>http://127.0.0.1:8000/fdsafasdfsdf/</loc>
+    <lastmod>2025-09-15</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://127.0.0.1:8000/usjapantradedealputspressureonbangladeshastariffdeadlinenearseee/</loc>
     <lastmod>2025-09-13</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/ipdcfinanceseesstrong45pcprofitgrowthinfirsthalfof2025/</loc>
+    <loc>http://127.0.0.1:8000/ipdcfinanceseesstrong45pcprofitgrowthinfirsthalfof2025/</loc>
     <lastmod>2025-09-13</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/usjapantradedealputspressureonbangladeshastariffdeadlinenears/</loc>
+    <loc>http://127.0.0.1:8000/usjapantradedealputspressureonbangladeshastariffdeadlinenears/</loc>
     <lastmod>2025-09-13</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/salman-shibli-rubayat-banned-from-capital-market-for-life-over-amar-bond-scam/</loc>
+    <loc>http://127.0.0.1:8000/salman-shibli-rubayat-banned-from-capital-market-for-life-over-amar-bond-scam/</loc>
     <lastmod>2025-09-03</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/etraceability-in-fish-exports-a-new-horizon-for-bangladeshs-economic-growth/</loc>
+    <loc>http://127.0.0.1:8000/etraceability-in-fish-exports-a-new-horizon-for-bangladeshs-economic-growth/</loc>
     <lastmod>2025-09-03</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/best-holdings-brings-fivestar-luxury-global-education-to-bhalukas-industrial-hub/</loc>
+    <loc>http://127.0.0.1:8000/best-holdings-brings-fivestar-luxury-global-education-to-bhalukas-industrial-hub/</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/uslooksforwardtocontinuedengagementwithbangladeshmiller/</loc>
+    <loc>http://127.0.0.1:8000/uslooksforwardtocontinuedengagementwithbangladeshmiller/</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/unsecretarygeneralguterresleavesdhaka/</loc>
+    <loc>http://127.0.0.1:8000/unsecretarygeneralguterresleavesdhaka/</loc>
     <lastmod>2025-09-03</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/carequeststrumptoholdupnewtariffregimeforthreemonths/</loc>
+    <loc>http://127.0.0.1:8000/carequeststrumptoholdupnewtariffregimeforthreemonths/</loc>
+    <lastmod>2025-09-13</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://127.0.0.1:8000/julyprotestersshotpointblankinsomecasesun/</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>http://localhost/trust/julyprotestersshotpointblankinsomecasesun/</loc>
-    <lastmod>2025-09-11</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>http://localhost/trust/bangladeshannouncesthreedaystatemourningonpassingofpopefrancis/</loc>
+    <loc>http://127.0.0.1:8000/bangladeshannouncesthreedaystatemourningonpassingofpopefrancis/</loc>
     <lastmod>2025-09-11</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>

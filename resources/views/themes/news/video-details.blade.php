@@ -115,11 +115,11 @@
 
 
                     {{-- HTML5 Video --}}
-                    {{-- <video x-ref="videoEl" x-show="showVideo" controls class="absolute top-0 left-0 w-full h-full z-10"
+                     <video x-ref="videoEl" x-show="showVideo" controls class="absolute top-0 left-0 w-full h-full z-10"
                         poster="{{ $poster }}">
                         <source src="{{ $src }}" type="video/mp4">
                         Your browser does not support the video tag.
-                    </video> --}}
+                     </video> 
                 </div>
             @elseif ($renderType === 'iframe')
                 <div x-data="{ showPlayer: false }" class="relative aspect-video mt-4 mb-4">
