@@ -77,12 +77,22 @@
                 </div>
             </div>
             <!-- News Details -->
-            <div class="dark:text-white mt-6">
+             <div class="dark:text-white mt-6">
+                
                 @if (isset($newsDetail->photoLibrary->large_image))
                     <figure class="mb-8">
-                        <img class="w-full max-h-[550px]"
+                        {{-- old code  --}}
+                        {{-- <img class="w-full max-h-[550px]"
                             src="{{ isset($newsDetail->photoLibrary->large_image) ? asset('storage/' . $newsDetail->photoLibrary->large_image) : asset('/assets/news-details-view.png') }}"
-                            alt="{{ $newsDetail->image_alt }}" />
+                            alt="{{ $newsDetail->image_alt }}" /> --}}
+                              
+                          {{-- image   path fixed --}}
+                  <img class="w-full max-h-[550px]"
+     src="{{ isset($newsDetail->photoLibrary->large_image) 
+         ? asset($newsDetail->photoLibrary->large_image) 
+         : asset('/assets/news-details-view.png') }}"
+     alt="{{ $newsDetail->image_alt }}" />
+
                         <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400 italic text-center">
                             {{ $newsDetail->image_title }}
                         </figcaption>

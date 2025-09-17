@@ -186,7 +186,7 @@
                                 @endphp
 
                                 <tr>
-                                    <td>
+                                 <td>
                                         @php
                                             if($latest->thumb_image != null){
                                         @endphp
@@ -199,6 +199,24 @@
                                             }
                                         @endphp
                                     </td>
+                                       <td>
+                                        {{-- Tested code not working  --}}
+    {{-- @php
+        $imageurl = $populer->thumb_image 
+            ? storage_asset_image($populer->thumb_image) 
+            : asset('backend/assets/default_image.png'); 
+    @endphp
+
+    @if($populer->thumb_image)
+        <img src="{{ $imageurl }}" width="60">
+    @else
+        <img src="{{ $imageurl }}" width="60">
+    @endif
+</td>  --}}
+
+                                    
+
+
                                     <td>{{ $latest->title }}</td>
                                     <td>{{ $latest->category_name }}</td>
                                     <td>{{ $latest->name }}</td>
@@ -215,6 +233,8 @@
                 <h6 class="fs-17 font-weight-600 mb-0">{{ucwords(localize('popular_posts'))}}</h6>
             </div>
             <div class="card-body">
+
+                {{-- testing code  --}}
                 <div class="table-responsive">
                     <table id="example2" class="table display table-bordered table-striped table-hover">
                         <thead>

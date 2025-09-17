@@ -8,77 +8,77 @@
                 xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <title>Trust News RSS Feed (bn)</title>
-<link>http://127.0.0.1:8000</link>
-<atom:link href="http://127.0.0.1:8000/rss/bn.xml" rel="self" type="application/rss+xml" />
+<link>http://trust.test</link>
+<atom:link href="http://trust.test/rss/bn.xml" rel="self" type="application/rss+xml" />
 <description>Latest news from Trust News (bn)</description>
 <language>bn</language>
 <copyright>Copyright 2025 Trust News</copyright>
-<lastBuildDate>Mon, 15 Sep 2025 17:19:51 +0600</lastBuildDate>
-<pubDate>Mon, 15 Sep 2025 17:19:51 +0600</pubDate>
+<lastBuildDate>Wed, 17 Sep 2025 18:35:13 +0600</lastBuildDate>
+<pubDate>Wed, 17 Sep 2025 18:35:13 +0600</pubDate>
 <image>
 <title>Trust News RSS Feed</title>
-<url>http://127.0.0.1:8000/storage/application/1756705274-logo.png</url>
-<link>http://127.0.0.1:8000</link>
+<url>http://trust.test/storage/application/1756705274-logo.png</url>
+<link>http://trust.test</link>
 </image>
 <item>
 <title>আশুলিয়ায় ৬ লাশ পোড়ানোর মামলা: সাবেক এমপি সাইফুলসহ ১৬ জনের বিচার শুরু</title>
-<link>http://127.0.0.1:8000/bn/আশুলিয়ায়৬লাশপোড়ানোরমামলাসাবেকএমপিসাইফুলসহ১৬জনেরবিচারশুরু/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/আশুলিয়ায়৬লাশপোড়ানোরমামলাসাবেকএমপিসাইফুলসহ১৬জনেরবিচারশুরু/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/আশুলিয়ায়৬লাশপোড়ানোরমামলাসাবেকএমপিসাইফুলসহ১৬জনেরবিচারশুরু/" rel="standout" />
+<link>http://trust.test/bn/আশুলিয়ায়৬লাশপোড়ানোরমামলাসাবেকএমপিসাইফুলসহ১৬জনেরবিচারশুরু/</link>
+<guid isPermaLink="true">http://trust.test/bn/আশুলিয়ায়৬লাশপোড়ানোরমামলাসাবেকএমপিসাইফুলসহ১৬জনেরবিচারশুরু/</guid>
+<atom:link href="http://trust.test/bn/আশুলিয়ায়৬লাশপোড়ানোরমামলাসাবেকএমপিসাইফুলসহ১৬জনেরবিচারশুরু/" rel="standout" />
 <description><![CDATA[জুলাই-আগস্টে ছাত্র-জনতার আন্দোলনে সাভারের আশুলিয়ায় ৬ লাশ পোড়ানোর ঘটনায় সাবেক এমপি সাইফুলসহ ১৬ জনের বিচার শুরু হয়েছে। একই সঙ্গে পলাতক ৮ জনের বিরুদ্ধে গ্রেফতারি পরোয়ানা জারি করা হয়েছে।
 
  
 
 আজ বৃহস্পতিবার (২১ আগস্ট) আন্তর্জাতিক অপরাধ ট্রাইব্যুনাল-২...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756881910-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756881910-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 04:07:37 +0600</pubDate>
 <category>ক্রাইম</category>
 </item>
 <item>
 <title>বিচারককে ঘুষ দেওয়ার অভিযোগে পিপির সনদ স্থগিত</title>
-<link>http://127.0.0.1:8000/bn/বিচারককেঘুষদেওয়ারঅভিযোগেপিপিরসনদস্থগিত/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/বিচারককেঘুষদেওয়ারঅভিযোগেপিপিরসনদস্থগিত/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/বিচারককেঘুষদেওয়ারঅভিযোগেপিপিরসনদস্থগিত/" rel="standout" />
+<link>http://trust.test/bn/বিচারককেঘুষদেওয়ারঅভিযোগেপিপিরসনদস্থগিত/</link>
+<guid isPermaLink="true">http://trust.test/bn/বিচারককেঘুষদেওয়ারঅভিযোগেপিপিরসনদস্থগিত/</guid>
+<atom:link href="http://trust.test/bn/বিচারককেঘুষদেওয়ারঅভিযোগেপিপিরসনদস্থগিত/" rel="standout" />
 <description><![CDATA[পটুয়াখালীর নারী ও শিশু নির্যাতন দমন ট্রাইব্যুনালের সরকারি কৌঁসুলি (পিপি) অ্যাডভোকেট মো. রুহুল আমিনের বিরুদ্ধে বিচারককে ঘুষ দেওয়ার অভিযোগের প্রাথমিক সত্যতা পাওয়া গেছে। এ ঘটনায় তার আইনজীবী সনদ স্থগিত করেছে বাংলাদেশ বার কাউন্সিল। ফলে তিনি আপাতত আইন পে...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756881796-photo.jpeg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756881796-photo.jpeg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:44:49 +0600</pubDate>
 <category>ক্রাইম</category>
 </item>
 <item>
 <title>আবু সাঈদ হত্যা মামলায় সাক্ষ্য দিলেন বাবা মকবুল</title>
-<link>http://127.0.0.1:8000/bn/আবুসাঈদহত্যামামলায়সাক্ষ্যদিলেনবাবামকবুল/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/আবুসাঈদহত্যামামলায়সাক্ষ্যদিলেনবাবামকবুল/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/আবুসাঈদহত্যামামলায়সাক্ষ্যদিলেনবাবামকবুল/" rel="standout" />
+<link>http://trust.test/bn/আবুসাঈদহত্যামামলায়সাক্ষ্যদিলেনবাবামকবুল/</link>
+<guid isPermaLink="true">http://trust.test/bn/আবুসাঈদহত্যামামলায়সাক্ষ্যদিলেনবাবামকবুল/</guid>
+<atom:link href="http://trust.test/bn/আবুসাঈদহত্যামামলায়সাক্ষ্যদিলেনবাবামকবুল/" rel="standout" />
 <description><![CDATA[এবার জুলাই অভ্যুত্থানে রংপুরের বেগম রোকেয়া বিশ্ববিদ্যালয়ের (বেরোবি) শিক্ষার্থী আবু সাঈদ হত্যাকাণ্ডে মানবতাবিরোধী অপরাধের মামলায় সাক্ষ্য দিয়েছেন তার বাবা মকবুল হোসেন।
 
 আজ বৃহস্পতিবার (২৮ আগস্ট) বিচারপতি নজরুল ইসলাম চৌধুরী নেতৃত্বাধীন তিন সদস্যের আন্...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756881748-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756881748-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:45:16 +0600</pubDate>
 <category>ক্রাইম</category>
 </item>
 <item>
 <title>কিশোর হত্যা মামলায় সাবেক সিনিয়র সচিব জিয়াউল গ্রেপ্তার</title>
-<link>http://127.0.0.1:8000/bn/কিশোরহত্যামামলায়সাবেকসিনিয়রসচিবজিয়াউলগ্রেপ্তার/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/কিশোরহত্যামামলায়সাবেকসিনিয়রসচিবজিয়াউলগ্রেপ্তার/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/কিশোরহত্যামামলায়সাবেকসিনিয়রসচিবজিয়াউলগ্রেপ্তার/" rel="standout" />
+<link>http://trust.test/bn/কিশোরহত্যামামলায়সাবেকসিনিয়রসচিবজিয়াউলগ্রেপ্তার/</link>
+<guid isPermaLink="true">http://trust.test/bn/কিশোরহত্যামামলায়সাবেকসিনিয়রসচিবজিয়াউলগ্রেপ্তার/</guid>
+<atom:link href="http://trust.test/bn/কিশোরহত্যামামলায়সাবেকসিনিয়রসচিবজিয়াউলগ্রেপ্তার/" rel="standout" />
 <description><![CDATA[বৈষম্যবিরোধী ছাত্র আন্দোলনে এক কিশোর হত্যা মামলায় সাবেক সিনিয়র সচিব এন এম জিয়াউল আলমকে গ্রেপ্তার দেখিয়েছেন আদালত। রাজধানীর কাফরুল থানায় দায়ের করা মামলায় এ গ্রেফতার দেখানো হয়।
 
  
 
 সোমবার (১ সেপ্টেম্বর) ঢাকার মেট্রোপলিটন ম্যাজিস্ট্রেট ইসরাত জেনিফ...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756881704-photo.jpeg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756881704-photo.jpeg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:45:25 +0600</pubDate>
 <category>ক্রাইম</category>
 </item>
 <item>
 <title>বরগুনায় বিএনপির অফিস ভাঙচুর মামলায় ১২ আইনজীবী কারাগারে</title>
-<link>http://127.0.0.1:8000/bn/বরগুনায়বিএনপিরঅফিসভাঙচুরমামলায়১২আইনজীবীকারাগারে/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/বরগুনায়বিএনপিরঅফিসভাঙচুরমামলায়১২আইনজীবীকারাগারে/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/বরগুনায়বিএনপিরঅফিসভাঙচুরমামলায়১২আইনজীবীকারাগারে/" rel="standout" />
+<link>http://trust.test/bn/বরগুনায়বিএনপিরঅফিসভাঙচুরমামলায়১২আইনজীবীকারাগারে/</link>
+<guid isPermaLink="true">http://trust.test/bn/বরগুনায়বিএনপিরঅফিসভাঙচুরমামলায়১২আইনজীবীকারাগারে/</guid>
+<atom:link href="http://trust.test/bn/বরগুনায়বিএনপিরঅফিসভাঙচুরমামলায়১২আইনজীবীকারাগারে/" rel="standout" />
 <description><![CDATA[বরগুনা জেলা বিএনপি অফিস ভাঙচুর ও অগ্নিযোগ মামলায় ১২ জন আইনজীবীর জামিন নামঞ্জুর করে জেল হাজতে প্রেরণের নির্দেশ দিয়েছে আদালত। 
 
  
@@ -88,70 +88,70 @@
  
 
 আইনজীবীরা হলেন বরগুনা আইনজীবী...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756881472-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756881472-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:45:32 +0600</pubDate>
 <category>ক্রাইম</category>
 </item>
 <item>
 <title>ট্রেনে চড়ে চীন যাচ্ছেন কিম জং উন</title>
-<link>http://127.0.0.1:8000/bn/ট্রেনেচড়েচীনযাচ্ছেনকিমজংউন/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/ট্রেনেচড়েচীনযাচ্ছেনকিমজংউন/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/ট্রেনেচড়েচীনযাচ্ছেনকিমজংউন/" rel="standout" />
+<link>http://trust.test/bn/ট্রেনেচড়েচীনযাচ্ছেনকিমজংউন/</link>
+<guid isPermaLink="true">http://trust.test/bn/ট্রেনেচড়েচীনযাচ্ছেনকিমজংউন/</guid>
+<atom:link href="http://trust.test/bn/ট্রেনেচড়েচীনযাচ্ছেনকিমজংউন/" rel="standout" />
 <description><![CDATA[উত্তর কোরিয়ার নেতা কিম জং উন দ্বিতীয় বিশ্বযুদ্ধে জাপানের আত্মসমর্পণের স্মরণে আয়োজিত সামরিক কুচকাওয়াজে যোগ দিতে চীনের বেইজিং যাচ্ছেন, তবে বিমানের পরিবর্তে একটি বিশেষ ট্রেনে করে। সোমবার পিয়ংইয়ং থেকে ট্রেনে চড়ে তিনি যাত্রা শুরু করেছেন।
 
  
 
 নাম প্র...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756881146-photo.jpeg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756881146-photo.jpeg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:45:39 +0600</pubDate>
 <category>ক্রাইম</category>
 </item>
 <item>
 <title>ট্রাম্পের কণ্ঠে উল্টো সুর: ৬ লাখ চীনা শিক্ষার্থীকে ভিসা দেওয়ার ঘোষণা</title>
-<link>http://127.0.0.1:8000/bn/ট্রাম্পেরকণ্ঠেউল্টোসুর৬লাখচীনাশিক্ষার্থীকেভিসাদেওয়ারঘোষণা/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/ট্রাম্পেরকণ্ঠেউল্টোসুর৬লাখচীনাশিক্ষার্থীকেভিসাদেওয়ারঘোষণা/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/ট্রাম্পেরকণ্ঠেউল্টোসুর৬লাখচীনাশিক্ষার্থীকেভিসাদেওয়ারঘোষণা/" rel="standout" />
+<link>http://trust.test/bn/ট্রাম্পেরকণ্ঠেউল্টোসুর৬লাখচীনাশিক্ষার্থীকেভিসাদেওয়ারঘোষণা/</link>
+<guid isPermaLink="true">http://trust.test/bn/ট্রাম্পেরকণ্ঠেউল্টোসুর৬লাখচীনাশিক্ষার্থীকেভিসাদেওয়ারঘোষণা/</guid>
+<atom:link href="http://trust.test/bn/ট্রাম্পেরকণ্ঠেউল্টোসুর৬লাখচীনাশিক্ষার্থীকেভিসাদেওয়ারঘোষণা/" rel="standout" />
 <description><![CDATA[যুক্তরাষ্ট্রের প্রেসিডেন্ট ডোনাল্ড ট্রাম্প তার আগের নীতি থেকে সরে এসে ছয় লাখ চীনা শিক্ষার্থীকে ভিসা দেওয়ার সিদ্ধান্ত নিয়েছেন। এ বিষয়ে ব্যাখ্যা দিতে গিয়ে ট্রাম্প বলেন, ভিসা বাতিল করা ‘অপমানজনক’ হবে এবং যুক্তরাষ্ট্রের ছোট বিশ্ববিদ্যালয়গুলোও এতে লাভবান...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756881100-photo.jpeg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756881100-photo.jpeg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:45:47 +0600</pubDate>
 <category>ক্রাইম</category>
 </item>
 <item>
 <title>ফের ভূমিকম্পে কাঁপল আফগানিস্তান</title>
-<link>http://127.0.0.1:8000/bn/ফেরভূমিকম্পেকাঁপলআফগানিস্তান/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/ফেরভূমিকম্পেকাঁপলআফগানিস্তান/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/ফেরভূমিকম্পেকাঁপলআফগানিস্তান/" rel="standout" />
+<link>http://trust.test/bn/ফেরভূমিকম্পেকাঁপলআফগানিস্তান/</link>
+<guid isPermaLink="true">http://trust.test/bn/ফেরভূমিকম্পেকাঁপলআফগানিস্তান/</guid>
+<atom:link href="http://trust.test/bn/ফেরভূমিকম্পেকাঁপলআফগানিস্তান/" rel="standout" />
 <description><![CDATA[আফগানিস্তানে ভয়াবহতার রেশও কাটতে না কাটতেই দেশটির উত্তর-পূর্বাঞ্চলে আবারও ৫.২ মাত্রার ভূমিকম্প আঘাত হেনেছে। 
 
  
 
 আজ মঙ্গলবার বিকেল ৪টা ৫৯ মিনিটে এ ভূমিকম্প অনুভূত হয়। ভূমিকম্পের উৎপত্তিস্থল ছিল জালালাবাদের উত্তর-পূর্বে প্রায় ৩৪ কিলোমিটার দূরে এবং...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756881038-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756881038-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:45:54 +0600</pubDate>
 <category>ক্রাইম</category>
 </item>
 <item>
 <title>ভেনেজুয়েলার নৌযানে যুক্তরাষ্ট্রের হামলা, নিহত অন্তত ১১</title>
-<link>http://127.0.0.1:8000/bn/ভেনেজুয়েলারনৌযানেযুক্তরাষ্ট্রেরহামলানিহতঅন্তত১১/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/ভেনেজুয়েলারনৌযানেযুক্তরাষ্ট্রেরহামলানিহতঅন্তত১১/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/ভেনেজুয়েলারনৌযানেযুক্তরাষ্ট্রেরহামলানিহতঅন্তত১১/" rel="standout" />
+<link>http://trust.test/bn/ভেনেজুয়েলারনৌযানেযুক্তরাষ্ট্রেরহামলানিহতঅন্তত১১/</link>
+<guid isPermaLink="true">http://trust.test/bn/ভেনেজুয়েলারনৌযানেযুক্তরাষ্ট্রেরহামলানিহতঅন্তত১১/</guid>
+<atom:link href="http://trust.test/bn/ভেনেজুয়েলারনৌযানেযুক্তরাষ্ট্রেরহামলানিহতঅন্তত১১/" rel="standout" />
 <description><![CDATA[দক্ষিণ ক্যারিবীয় সাগরে ভেনেজুয়েলা থেকে আসা সন্দেহভাজন মাদকবাহী একটি নৌযানে যুক্তরাষ্ট্রের সামরিক অভিযানে ১১ জন নিহত হয়েছে। প্রেসিডেন্ট ডোনাল্ড ট্রাম্প এই হামলার সত্যতা নিশ্চিত করেছেন।
 
 বুধবার (৩ সেপ্টেম্বর) এক প্রতিবেদনে এই তথ্য জানিয়েছে বার্তাসংস্...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756880546-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756880546-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:46:03 +0600</pubDate>
 <category>ক্রাইম</category>
 </item>
 <item>
 <title>শৈলকুপায় আহত মেছো বাঘ পিটিয়ে হত্যা</title>
-<link>http://127.0.0.1:8000/bn/শৈলকুপায়আহতমেছোবাঘপিটিয়েহত্যা/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/শৈলকুপায়আহতমেছোবাঘপিটিয়েহত্যা/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/শৈলকুপায়আহতমেছোবাঘপিটিয়েহত্যা/" rel="standout" />
+<link>http://trust.test/bn/শৈলকুপায়আহতমেছোবাঘপিটিয়েহত্যা/</link>
+<guid isPermaLink="true">http://trust.test/bn/শৈলকুপায়আহতমেছোবাঘপিটিয়েহত্যা/</guid>
+<atom:link href="http://trust.test/bn/শৈলকুপায়আহতমেছোবাঘপিটিয়েহত্যা/" rel="standout" />
 <description><![CDATA[ঝিনাইদহের শৈলকুপায় ধান কাটার মেশিনের আঘাতে আহত একটি মেছো বাঘের শাবককে পিটিয়ে হত্যা করেছে এলাকাবাসী। 
 
  
@@ -161,96 +161,96 @@
  
 
 স্থানীয়রা জানান, সাতগাছি মাঠের একটি জমিতে কম্বাইন হারভ...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756880342-photo.jpeg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756880342-photo.jpeg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:46:11 +0600</pubDate>
 <category>ক্রাইম</category>
 </item>
 <item>
 <title>বঙ্গোপসাগরে ধরা পড়ল বিরল প্রজাতির ‘পাফারফিশ’</title>
-<link>http://127.0.0.1:8000/bn/বঙ্গোপসাগরেধরাপড়লবিরলপ্রজাতিরপাফারফিশ/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/বঙ্গোপসাগরেধরাপড়লবিরলপ্রজাতিরপাফারফিশ/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/বঙ্গোপসাগরেধরাপড়লবিরলপ্রজাতিরপাফারফিশ/" rel="standout" />
+<link>http://trust.test/bn/বঙ্গোপসাগরেধরাপড়লবিরলপ্রজাতিরপাফারফিশ/</link>
+<guid isPermaLink="true">http://trust.test/bn/বঙ্গোপসাগরেধরাপড়লবিরলপ্রজাতিরপাফারফিশ/</guid>
+<atom:link href="http://trust.test/bn/বঙ্গোপসাগরেধরাপড়লবিরলপ্রজাতিরপাফারফিশ/" rel="standout" />
 <description><![CDATA[বঙ্গোপসাগরের কুয়াকাটা উপকূলে এক জেলের জালে ধরা পড়েছে বিরল প্রজাতির একটি ‘পাফারফিশ’ বা ফুগু মাছ। 
 
  
 
 গতকাল রবিবার (১৭ আগস্ট) সন্ধ্যায় মাছটি আলীপুর মৎস্য অবতরণ কেন্দ্রের একটি আড়তে আনা হলে এলাকাজুড়ে দেখা দেয় কৌতূহলের জোয়ার। মাছটির ওজন প্রায় সাড়ে তি...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756880295-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756880295-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:47:03 +0600</pubDate>
 <category>এনভায়রনমেন্ট</category>
 </item>
 <item>
 <title>কেশবপুরে জলাবদ্ধ খেত আর ইঁদুরের যন্ত্রণায় দিশেহারা কৃষক</title>
-<link>http://127.0.0.1:8000/bn/কেশবপুরেজলাবদ্ধখেতআরইঁদুরেরযন্ত্রণায়দিশেহারাকৃষক/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/কেশবপুরেজলাবদ্ধখেতআরইঁদুরেরযন্ত্রণায়দিশেহারাকৃষক/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/কেশবপুরেজলাবদ্ধখেতআরইঁদুরেরযন্ত্রণায়দিশেহারাকৃষক/" rel="standout" />
+<link>http://trust.test/bn/কেশবপুরেজলাবদ্ধখেতআরইঁদুরেরযন্ত্রণায়দিশেহারাকৃষক/</link>
+<guid isPermaLink="true">http://trust.test/bn/কেশবপুরেজলাবদ্ধখেতআরইঁদুরেরযন্ত্রণায়দিশেহারাকৃষক/</guid>
+<atom:link href="http://trust.test/bn/কেশবপুরেজলাবদ্ধখেতআরইঁদুরেরযন্ত্রণায়দিশেহারাকৃষক/" rel="standout" />
 <description><![CDATA[যশোরের কেশবপুরে পানিতে তলিয়ে রয়েছে ধানখেত। তাই পুরোপুরি পাকার আগেই ধান তুলতে বাধ্য হচ্ছেন তারা। পানির কারণে শ্রমিক দিয়ে খেত থেকে ধান কাটতে বাড়তি টাকা গুনতে হচ্ছে কৃষকের। এদিকে জমিতে ইঁদুর এসে ধান খেয়ে ফেলছে। আবার কেটে রাখা ফসলেও ইঁদুর আক্রমণ করছে। এক...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756880245-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756880245-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:47:11 +0600</pubDate>
 <category>এনভায়রনমেন্ট</category>
 </item>
 <item>
 <title>জাবি গবেষকদের উদ্ভাবন : কার্বন-ডাই-অক্সাইড দূষণ রোধে ‘লিকুইড ট্রি’</title>
-<link>http://127.0.0.1:8000/bn/জাবিগবেষকদেরউদ্ভাবনকার্বনডাইঅক্সাইডদূষণরোধেলিকুইডট্রি/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/জাবিগবেষকদেরউদ্ভাবনকার্বনডাইঅক্সাইডদূষণরোধেলিকুইডট্রি/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/জাবিগবেষকদেরউদ্ভাবনকার্বনডাইঅক্সাইডদূষণরোধেলিকুইডট্রি/" rel="standout" />
+<link>http://trust.test/bn/জাবিগবেষকদেরউদ্ভাবনকার্বনডাইঅক্সাইডদূষণরোধেলিকুইডট্রি/</link>
+<guid isPermaLink="true">http://trust.test/bn/জাবিগবেষকদেরউদ্ভাবনকার্বনডাইঅক্সাইডদূষণরোধেলিকুইডট্রি/</guid>
+<atom:link href="http://trust.test/bn/জাবিগবেষকদেরউদ্ভাবনকার্বনডাইঅক্সাইডদূষণরোধেলিকুইডট্রি/" rel="standout" />
 <description><![CDATA[বিশ্বজুড়ে দ্রুত বাড়ছে পরিবেশ দূষণ। নগরের রাস্তাঘাটে ধুলাবালি, যানজট আর শ্বাসরুদ্ধকর বায়ুদূষণ এখন দৈনন্দিন জীবনের অংশ। এর সঙ্গে অদৃশ্য এক শত্রু কার্বন-ডাই-অক্সাইড (CO₂) প্রতিনিয়ত আমাদের শরীরে ঢুকে নানা জটিল স্বাস্থ্যঝুঁকি তৈরি করছে। কেবল খোলা জায়গা নয়...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756880190-photo.jpeg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756880190-photo.jpeg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:47:21 +0600</pubDate>
 <category>এনভায়রনমেন্ট</category>
 </item>
 <item>
 <title>যশোরে কৃষকদের মাঝে মাসকালাই বীজ ও সার বিতরণ</title>
-<link>http://127.0.0.1:8000/bn/যশোরেকৃষকদেরমাঝেমাসকালাইবীজওসারবিতরণ/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/যশোরেকৃষকদেরমাঝেমাসকালাইবীজওসারবিতরণ/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/যশোরেকৃষকদেরমাঝেমাসকালাইবীজওসারবিতরণ/" rel="standout" />
+<link>http://trust.test/bn/যশোরেকৃষকদেরমাঝেমাসকালাইবীজওসারবিতরণ/</link>
+<guid isPermaLink="true">http://trust.test/bn/যশোরেকৃষকদেরমাঝেমাসকালাইবীজওসারবিতরণ/</guid>
+<atom:link href="http://trust.test/bn/যশোরেকৃষকদেরমাঝেমাসকালাইবীজওসারবিতরণ/" rel="standout" />
 <description><![CDATA[যশোর সদর উপজেলায় ২০২৫-২৬ অর্থবছরে খরিপ-২ মৌসুমের কৃষি প্রণোদনা কর্মসূচির আওতায় মাসকালাই বীজ ও সার বিতরণ করা হয়েছে। ফসলের আবাদ ও উৎপাদন বৃদ্ধির লক্ষ্যে ক্ষুদ্র ও প্রান্তিক কৃষকদের মাঝে বিনামূল্যে এসব বিতরণ করেন যশোরের জেলা প্রশাসক আজহারুল ইসলাম।
 
 সো...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756880120-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756880120-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:47:29 +0600</pubDate>
 <category>এনভায়রনমেন্ট</category>
 </item>
 <item>
 <title>যেভাবে ব্যবহার করবেন গুগল এআই মোড</title>
-<link>http://127.0.0.1:8000/bn/যেভাবেব্যবহারকরবেনগুগলএআইমোড/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/যেভাবেব্যবহারকরবেনগুগলএআইমোড/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/যেভাবেব্যবহারকরবেনগুগলএআইমোড/" rel="standout" />
+<link>http://trust.test/bn/যেভাবেব্যবহারকরবেনগুগলএআইমোড/</link>
+<guid isPermaLink="true">http://trust.test/bn/যেভাবেব্যবহারকরবেনগুগলএআইমোড/</guid>
+<atom:link href="http://trust.test/bn/যেভাবেব্যবহারকরবেনগুগলএআইমোড/" rel="standout" />
 <description><![CDATA[গুগল তাদের সার্চ ইঞ্জিনে চালু করেছে নতুন এআই মোড। যুক্তরাজ্য, ভারত ও যুক্তরাষ্ট্রে সফল পরীক্ষার পর এবার একসাথে ১৮০টি দেশ ও অঞ্চলে এটি উন্মুক্ত করা হয়েছে।
 
  
 
 গুগলের ঘোষণা অনুযায়ী, এই এআই মোড ব্যবহারকারীদের আরও দ্রুত ও কার্যকরভাবে তথ্য পেতে সাহায্...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756879940-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756879940-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:47:37 +0600</pubDate>
 <category>টেকনোজি</category>
 </item>
 <item>
 <title>গুগল জেমিনিতে এলো ‘স্টোরিবুক’</title>
-<link>http://127.0.0.1:8000/bn/গুগলজেমিনিতেএলোস্টোরিবুক/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/গুগলজেমিনিতেএলোস্টোরিবুক/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/গুগলজেমিনিতেএলোস্টোরিবুক/" rel="standout" />
+<link>http://trust.test/bn/গুগলজেমিনিতেএলোস্টোরিবুক/</link>
+<guid isPermaLink="true">http://trust.test/bn/গুগলজেমিনিতেএলোস্টোরিবুক/</guid>
+<atom:link href="http://trust.test/bn/গুগলজেমিনিতেএলোস্টোরিবুক/" rel="standout" />
 <description><![CDATA[গুগল তাদের জনপ্রিয় চ্যাটবট জেমিনিতে যুক্ত করেছে নতুন ফিচার “স্টোরিবুক”, যা ব্যবহারকারীর দেওয়া যেকোনো ধারণাকে রূপ দেবে চিত্রসহ শিশুদের গল্পে।
 
  
 
 স্টোরিবুক ফিচারে ১০ পাতার একটি কল্পকাহিনি তৈরি হয়, যেখানে প্রতিটি পৃষ্ঠায় থাকে একটি ছোট অনুচ্ছেদ ও সঙ...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756879712-photo.jpeg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756879712-photo.jpeg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:47:52 +0600</pubDate>
 <category>টেকনোজি</category>
 </item>
 <item>
 <title>হোয়াটসঅ্যাপে গ্রুপ কলে এলো নতুন ফিচার</title>
-<link>http://127.0.0.1:8000/bn/হোয়াটসঅ্যাপেগ্রুপকলেএলোনতুনফিচার/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/হোয়াটসঅ্যাপেগ্রুপকলেএলোনতুনফিচার/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/হোয়াটসঅ্যাপেগ্রুপকলেএলোনতুনফিচার/" rel="standout" />
+<link>http://trust.test/bn/হোয়াটসঅ্যাপেগ্রুপকলেএলোনতুনফিচার/</link>
+<guid isPermaLink="true">http://trust.test/bn/হোয়াটসঅ্যাপেগ্রুপকলেএলোনতুনফিচার/</guid>
+<atom:link href="http://trust.test/bn/হোয়াটসঅ্যাপেগ্রুপকলেএলোনতুনফিচার/" rel="standout" />
 <description><![CDATA[হোয়াটসঅ্যাপ এবার গ্রুপ কলের অভিজ্ঞতাকে আরও সহজ, প্রাণবন্ত ও সংগঠিত করতে চালু করেছে কয়েকটি নতুন ফিচার। এগুলো ব্যবহারকারীদের আলাপচারিতা আরও মসৃণ করবে।
 
  
@@ -260,46 +260,46 @@
  
 
 হ্যান্ড রেইজ অপশন: কল চলাকালীন কথা বলার জন্য হাত তোলার সুযোগ থাক...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756879645-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756879645-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:48:20 +0600</pubDate>
 <category>টেকনোজি</category>
 </item>
 <item>
 <title>গুগল সার্চে চালু হলো নতুন ‘এআই মোড’</title>
-<link>http://127.0.0.1:8000/bn/গুগলসার্চেচালুহলোনতুনএআইমোড/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/গুগলসার্চেচালুহলোনতুনএআইমোড/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/গুগলসার্চেচালুহলোনতুনএআইমোড/" rel="standout" />
+<link>http://trust.test/bn/গুগলসার্চেচালুহলোনতুনএআইমোড/</link>
+<guid isPermaLink="true">http://trust.test/bn/গুগলসার্চেচালুহলোনতুনএআইমোড/</guid>
+<atom:link href="http://trust.test/bn/গুগলসার্চেচালুহলোনতুনএআইমোড/" rel="standout" />
 <description><![CDATA[গুগল তাদের সার্চ ইঞ্জিনে নতুন একটি সুবিধা ‘এআই মোড’ চালু করেছে। যুক্তরাজ্য, ভারত ও যুক্তরাষ্ট্রে সফলভাবে পরীক্ষা চালানোর পর এবার এটি একযোগে ১৮০টি দেশ ও অঞ্চলে চালু করা হয়েছে।
 
 গুগলের ভাষ্য অনুযায়ী, ‘এআই মোড’ ব্যবহারকারীদের আরও স্বতন্ত্র, দ্রুত ও কা...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756879582-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756879582-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:48:28 +0600</pubDate>
 <category>টেকনোজি</category>
 </item>
 <item>
 <title>ভুল মেইলে ক্লিক করলেই ফেসবুক গায়েব</title>
-<link>http://127.0.0.1:8000/bn/ভুলমেইলেক্লিককরলেইফেসবুকগায়েব/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/ভুলমেইলেক্লিককরলেইফেসবুকগায়েব/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/ভুলমেইলেক্লিককরলেইফেসবুকগায়েব/" rel="standout" />
+<link>http://trust.test/bn/ভুলমেইলেক্লিককরলেইফেসবুকগায়েব/</link>
+<guid isPermaLink="true">http://trust.test/bn/ভুলমেইলেক্লিককরলেইফেসবুকগায়েব/</guid>
+<atom:link href="http://trust.test/bn/ভুলমেইলেক্লিককরলেইফেসবুকগায়েব/" rel="standout" />
 <description><![CDATA[প্রযুক্তি উন্নয়নের সঙ্গে বাড়ছে অভিনব প্রতারণা। বিশেষত, সামাজিক যোগাযোগ মাধ্যমকে ব্যবহার করে প্রতারকরা এখন সহজেই তথ্য হাতিয়ে নিচ্ছে। আপনি বুঝে ওঠার আগেই গায়েব হয়ে যাচ্ছে সামাজিক যোগাযোগ মাধ্যমের এক্সেস। তাই প্রতারকের হাত থেকে বাঁচতে সচেতনতার বিকল্প নে...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756879483-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756879483-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:48:35 +0600</pubDate>
 <category>টেকনোজি</category>
 </item>
 <item>
 <title>রিজার্ভ ফের ৩১ বিলিয়ন ডলার ছাড়াল</title>
-<link>http://127.0.0.1:8000/bn/রিজার্ভফের৩১বিলিয়নডলারছাড়াল/</link>
-<guid isPermaLink="true">http://127.0.0.1:8000/bn/রিজার্ভফের৩১বিলিয়নডলারছাড়াল/</guid>
-<atom:link href="http://127.0.0.1:8000/bn/রিজার্ভফের৩১বিলিয়নডলারছাড়াল/" rel="standout" />
+<link>http://trust.test/bn/রিজার্ভফের৩১বিলিয়নডলারছাড়াল/</link>
+<guid isPermaLink="true">http://trust.test/bn/রিজার্ভফের৩১বিলিয়নডলারছাড়াল/</guid>
+<atom:link href="http://trust.test/bn/রিজার্ভফের৩১বিলিয়নডলারছাড়াল/" rel="standout" />
 <description><![CDATA[দেশের বৈদেশিক মুদ্রার রিজার্ভ ফের ৩১ বিলিয়ন ডলার ছাড়িয়েছে। বাংলাদেশ ব্যাংকের সর্বশেষ হিসাব অনুযায়ী বুধবার (২৭ আগস্ট) গ্রস রিজার্ভ দাঁড়িয়েছে ৩১ বিলিয়ন ৩৩ লাখ ডলার। 
 
  
 
 একই সঙ্গে আন্তর্জাতিক মুদ্রা তহবিলের (আইএমএফ) হিসাব পদ্ধতি বিপিএম-৬ অনুযায়ী রি...]]></description>
-<enclosure url="http://127.0.0.1:8000/storage/uploads/photo-library/large_1756879310-photo.jpg" length="0" type="image/jpeg" />
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756879310-photo.jpg" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 02:48:45 +0600</pubDate>
 <category>বিজনেস</category>

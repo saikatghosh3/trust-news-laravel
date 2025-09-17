@@ -8,17 +8,17 @@
                 xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <title>Trust News RSS Feed (ar)</title>
-<link>http://127.0.0.1:8000</link>
-<atom:link href="http://127.0.0.1:8000/rss/ar.xml" rel="self" type="application/rss+xml" />
+<link>http://trust.test</link>
+<atom:link href="http://trust.test/rss/ar.xml" rel="self" type="application/rss+xml" />
 <description>Latest news from Trust News (ar)</description>
 <language>ar</language>
 <copyright>Copyright 2025 Trust News</copyright>
-<lastBuildDate>Mon, 15 Sep 2025 17:19:51 +0600</lastBuildDate>
-<pubDate>Mon, 15 Sep 2025 17:19:51 +0600</pubDate>
+<lastBuildDate>Wed, 17 Sep 2025 18:35:13 +0600</lastBuildDate>
+<pubDate>Wed, 17 Sep 2025 18:35:13 +0600</pubDate>
 <image>
 <title>Trust News RSS Feed</title>
-<url>http://127.0.0.1:8000/storage/application/1756705274-logo.png</url>
-<link>http://127.0.0.1:8000</link>
+<url>http://trust.test/storage/application/1756705274-logo.png</url>
+<link>http://trust.test</link>
 </image>
 </channel>
 </rss>
