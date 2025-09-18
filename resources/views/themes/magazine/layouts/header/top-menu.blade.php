@@ -4,11 +4,19 @@
 <section class="@if (!$themeSettings->background_color || mode()) bg-theme-three @endif hidden xl:block fixed_top_menu"
     @if (!mode() && $themeSettings->background_color) style="background-color: {{ $themeSettings->background_color }};" @endif>
     <div class="container flex items-center justify-between gap-4 relative py-2">
-        <figure>
+        {{-- <figure>
             <a href="{{ __url('/') }}" class="w-32 h-6 flex_center overflow-hidden">
                 <img src="{{ app_setting()->footer_logo }}" alt="Brand Logo" />
             </a>
-        </figure>
+        </figure> --}}
+
+          {{-- fixied version of logo --}}
+           <figure>
+    <a href="{{ __url('/') }}" class="w-32 h-12 flex_center">
+        <img src="{{ app_setting()->footer_logo }}" alt="Brand Logo" class="max-h-full object-contain" />
+    </a>
+</figure>
+
         <div class="hidden lg:block side-bar">
             <div class="menu flex items-center gap-2 xl:gap-4">
                 <div class="item relative cursor-pointer py-2">

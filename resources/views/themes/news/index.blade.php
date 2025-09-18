@@ -187,9 +187,9 @@
     </div>
 
 
-    {{-- <section class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-0 mt-8 bg-red-500">
+    <section class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-0 mt-8 ">
         <!-- Tech News Slider Section -->
-        <h1> hi this is news section</h1>
+        
         
         @if ($sectionFiveNews['thirdNews']->isNotEmpty())
             @include ('themes.news.components.common.tech-news-card', ['newsCards' => $sectionFiveNews['thirdNews']])
@@ -197,13 +197,13 @@
         @endif
 
          <!-- Food News Slider Section -->
-         <h1>Hi this is foode section</h1>
+         
         @if ($sectionFiveNews['fourthNews']->isNotEmpty())
             @include ('themes.news.components.common.tech-news-card', ['newsCards' => $sectionFiveNews['fourthNews']])
         @endif
 
         <!-- Binodon News Slider Section -->
-        <h1>hi this is binodon section</h1>
+        
         @if ($sectionSixNews->isNotEmpty())
             @include ('themes.news.components.common.tech-news-card', ['newsCards' => $sectionSixNews])
         @endif
@@ -221,11 +221,11 @@
             @include('themes.news.components.common.tech-news-card', ['newsCards' => $firstNewsGroup])
         @endif
         
-    </section>  --}}
+    </section> 
 
 
-{{-- test code 2 --}}
-<section class="container mt-12">
+{{-- test code 2  if we want to remove space --}}
+{{-- <section class="container mt-12">
     <!-- Lifestyle News Slider Section -->
     <div class="bg-white rounded-2xl shadow-lg p-6">
        
@@ -244,7 +244,7 @@
         @endif
     </div>
 </section>
-
+ --}}
 
 
          

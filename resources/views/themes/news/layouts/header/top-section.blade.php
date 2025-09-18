@@ -38,7 +38,7 @@
             <a class="dark:hidden w-32 h-6 flex_center overflow-hidden" href="{{ __url('/') }}">
                 <img src="{{ app_setting()->logo }}" alt="Brand logo light" />
             </a>
-        </div> --}}
+        </div>  --}}
 
 
    <div class="xl:hidden">

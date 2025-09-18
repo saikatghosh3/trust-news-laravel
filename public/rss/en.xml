@@ -13,13 +13,70 @@
 <description>Latest news from Trust News (en)</description>
 <language>en</language>
 <copyright>Copyright 2025 Trust News</copyright>
-<lastBuildDate>Wed, 17 Sep 2025 18:35:13 +0600</lastBuildDate>
-<pubDate>Wed, 17 Sep 2025 18:35:13 +0600</pubDate>
+<lastBuildDate>Thu, 18 Sep 2025 13:11:01 +0600</lastBuildDate>
+<pubDate>Thu, 18 Sep 2025 13:11:01 +0600</pubDate>
 <image>
 <title>Trust News RSS Feed</title>
 <url>http://trust.test/storage/application/1756705274-logo.png</url>
 <link>http://trust.test</link>
 </image>
+<item>
+<title>An ancient way to leaf-peep in the US</title>
+<link>http://trust.test/this-is-custom-url/</link>
+<guid isPermaLink="true">http://trust.test/this-is-custom-url/</guid>
+<atom:link href="http://trust.test/this-is-custom-url/" rel="standout" />
+<description><![CDATA[Vast, wild and wooded, the Adirondacks offer one of the US's most dramatic autumn foliage displays – and the best way to experience it may be a from a canoe.
+
+New York's Adirondack Park is the biggest state park in the US – a more-than six-million-...]]></description>
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1758179412-photo.webp" length="0" type="image/jpeg" />
+<dc:creator>Admin</dc:creator>
+<pubDate>Thu, 18 Sep 2025 01:11:01 +0600</pubDate>
+<category>Travel</category>
+</item>
+<item>
+<title>This is short head one</title>
+<link>http://trust.test/thisiscustomurl/</link>
+<guid isPermaLink="true">http://trust.test/thisiscustomurl/</guid>
+<atom:link href="http://trust.test/thisiscustomurl/" rel="standout" />
+<description><![CDATA[Another travel news for testing]]></description>
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1758178182-photo.webp" length="0" type="image/jpeg" />
+<dc:creator>Admin</dc:creator>
+<pubDate>Thu, 18 Sep 2025 12:58:48 +0600</pubDate>
+<category>Travel</category>
+</item>
+<item>
+<title>This is headline for national news</title>
+<link>http://trust.test/nationalnewsimportant/</link>
+<guid isPermaLink="true">http://trust.test/nationalnewsimportant/</guid>
+<atom:link href="http://trust.test/nationalnewsimportant/" rel="standout" />
+<description><![CDATA[This is the details news section for national ]]></description>
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1758172606-photo.webp" length="0" type="image/jpeg" />
+<dc:creator>Admin</dc:creator>
+<pubDate>Thu, 18 Sep 2025 11:36:16 +0600</pubDate>
+<category>National</category>
+</item>
+<item>
+<title>This headline about</title>
+<link>http://trust.test/thisisanotherenvironmentalnews/</link>
+<guid isPermaLink="true">http://trust.test/thisisanotherenvironmentalnews/</guid>
+<atom:link href="http://trust.test/thisisanotherenvironmentalnews/" rel="standout" />
+<description><![CDATA[This is new environment news . testing]]></description>
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1758172097-photo.webp" length="0" type="image/jpeg" />
+<dc:creator>Admin</dc:creator>
+<pubDate>Thu, 18 Sep 2025 11:08:54 +0600</pubDate>
+<category>Environment</category>
+</item>
+<item>
+<title>This is Environment News post</title>
+<link>http://trust.test/another-environment-news-post/</link>
+<guid isPermaLink="true">http://trust.test/another-environment-news-post/</guid>
+<atom:link href="http://trust.test/another-environment-news-post/" rel="standout" />
+<description><![CDATA[This is environment news post. We should save the environment.]]></description>
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1758171783-photo.webp" length="0" type="image/jpeg" />
+<dc:creator>Admin</dc:creator>
+<pubDate>Thu, 18 Sep 2025 11:04:00 +0600</pubDate>
+<category>Environment</category>
+</item>
 <item>
 <title>Travel experts say September has become the new peak</title>
 <link>http://trust.test/travelnewstesting/</link>
@@ -188,67 +245,6 @@ T...]]></description>
 <dc:creator>Admin</dc:creator>
 <pubDate>Wed, 03 Sep 2025 03:34:46 +0600</pubDate>
 <category>Business</category>
-</item>
-<item>
-<title>Best Holdings brings five-star luxury, global education to Bhaluka’s industrial hub</title>
-<link>http://trust.test/best-holdings-brings-fivestar-luxury-global-education-to-bhalukas-industrial-hub/</link>
-<guid isPermaLink="true">http://trust.test/best-holdings-brings-fivestar-luxury-global-education-to-bhalukas-industrial-hub/</guid>
-<atom:link href="http://trust.test/best-holdings-brings-fivestar-luxury-global-education-to-bhalukas-industrial-hub/" rel="standout" />
-<description><![CDATA[TBT DESK: Bhaluka, long known as one of Bangladesh’s fastest-growing industrial belts, is witnessing a new wave of transformation. Best Holdings PLC, the publicly listed company behind Dhaka’s Le Méridien, is investing heavily in the region with a se...]]></description>
-<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756892002-photo.jpeg" length="0" type="image/jpeg" />
-<dc:creator>Admin</dc:creator>
-<pubDate>Wed, 03 Sep 2025 03:33:41 +0600</pubDate>
-<category>Business</category>
-</item>
-<item>
-<title>US looks forward to continued engagement with Bangladesh: Miller</title>
-<link>http://trust.test/uslooksforwardtocontinuedengagementwithbangladeshmiller/</link>
-<guid isPermaLink="true">http://trust.test/uslooksforwardtocontinuedengagementwithbangladeshmiller/</guid>
-<atom:link href="http://trust.test/uslooksforwardtocontinuedengagementwithbangladeshmiller/" rel="standout" />
-<description><![CDATA[The United States (US) has expressed its commitment to ongoing cooperation with Bangladesh to address challenges related to economic stability, democracy, security, and the Rohingyas, State Department spokesperson said on Tuesday.
-
-“The Secretary (...]]></description>
-<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756891283-photo.jpg" length="0" type="image/jpeg" />
-<dc:creator>Admin</dc:creator>
-<pubDate>Wed, 03 Sep 2025 03:22:54 +0600</pubDate>
-<category>International</category>
-</item>
-<item>
-<title>UN Secretary General Guterres leaves Dhaka</title>
-<link>http://trust.test/unsecretarygeneralguterresleavesdhaka/</link>
-<guid isPermaLink="true">http://trust.test/unsecretarygeneralguterresleavesdhaka/</guid>
-<atom:link href="http://trust.test/unsecretarygeneralguterresleavesdhaka/" rel="standout" />
-<description><![CDATA[United Nations (UN) Secretary-General Antonio Guterres left here at 9:55am today ending his successful four-day visit.
-
-Environment Adviser Syeda Rizwana Hasan and Chief Adviser's High Representative for Rohingya Crisis Khalilur Rahman saw him off...]]></description>
-<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756891235-photo.webp" length="0" type="image/jpeg" />
-<dc:creator>Admin</dc:creator>
-<pubDate>Wed, 03 Sep 2025 03:23:07 +0600</pubDate>
-<category>International</category>
-</item>
-<item>
-<title>CA requests Trump to hold up new tariff regime for three months</title>
-<link>http://trust.test/carequeststrumptoholdupnewtariffregimeforthreemonths/</link>
-<guid isPermaLink="true">http://trust.test/carequeststrumptoholdupnewtariffregimeforthreemonths/</guid>
-<atom:link href="http://trust.test/carequeststrumptoholdupnewtariffregimeforthreemonths/" rel="standout" />
-<description><![CDATA[Chief Adviser Professor Muhammad Yunus today sent a letter to US President Donald Trump requesting him to postpone the application of a 37 percent tariff on Bangladeshi products in the US market.
-
-The Chief Adviser's Office (CAO) confirmed it to BS...]]></description>
-<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756891199-photo.webp" length="0" type="image/jpeg" />
-<dc:creator>Admin</dc:creator>
-<pubDate>Wed, 03 Sep 2025 03:23:24 +0600</pubDate>
-<category>International</category>
-</item>
-<item>
-<title>July protesters shot point blank in some cases: UN</title>
-<link>http://trust.test/julyprotestersshotpointblankinsomecasesun/</link>
-<guid isPermaLink="true">http://trust.test/julyprotestersshotpointblankinsomecasesun/</guid>
-<atom:link href="http://trust.test/julyprotestersshotpointblankinsomecasesun/" rel="standout" />
-<description><![CDATA[State security forces and Awami League men were involved in crimes against humanity during the July uprising as the security forces in some cases shot defenceless protesters from point blank range to kill them, said a United Nations (UN) report said....]]></description>
-<enclosure url="http://trust.test/storage/uploads/photo-library/large_1756891111-photo.webp" length="0" type="image/jpeg" />
-<dc:creator>Admin</dc:creator>
-<pubDate>Wed, 03 Sep 2025 03:23:38 +0600</pubDate>
-<category>International</category>
 </item>
 </channel>
 </rss>

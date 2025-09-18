@@ -5,11 +5,17 @@
     @if (!mode() && $themeSettings->background_color) style="background-color: {{ $themeSettings->background_color }};" @endif>
     <div class="container flex justify-between items-center gap-6 relative py-2">
         <!-- Mobile Brand Logo -->
-        <div class="">
-            <a class="w-32 h-6 flex_center overflow-hidden" href="{{ __url('/') }}">
+        {{-- <div class="">
+            <a class="w-32 h-6 pt-1 flex_center overflow-hidden" href="{{ __url('/') }}">
                 <img src="{{ app_setting()->footer_logo }}" alt="Brand logo dark" />
             </a>
-        </div>
+        </div> --}}
+
+        {{-- testing code 1 --}}
+        <a class="w-30 h-auto pt-1 flex_center" href="{{ __url('/') }}">
+    <img src="{{ app_setting()->footer_logo }}" alt="Brand logo dark" class="h-12 object-contain" />
+</a>
+
 
         <div class="side-bar">
             <div class="menu flex items-center gap-2 xl:gap-4">

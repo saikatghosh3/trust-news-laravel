@@ -30,15 +30,33 @@
                 <span class="text-sm">{{ $formattedDate }}</span>
             </div>
         </section>
-        <!-- Mobile Brand Logo -->
-        <div class="xl:hidden">
+        {{-- Mobile Brand Logo  --}}
+        
+         {{-- <div class="xl:hidden">
             <a class="hidden dark:block w-32 h-6 flex_center overflow-hidden" href="{{ __url('/') }}">
                 <img src="{{ app_setting()->footer_logo }}" alt="Brand logo dark" />
             </a>
             <a class="dark:hidden w-32 h-6 flex_center overflow-hidden" href="{{ __url('/') }}">
                 <img src="{{ app_setting()->logo }}" alt="Brand logo light" />
             </a>
-        </div>
+        </div> --}}
+
+
+      {{-- fixed code for dark and light mode --}}
+
+      <div class="xl:hidden">
+    <!-- Dark mode logo -->
+    <a class="hidden dark:block w-32 h-12 flex_center" href="{{ __url('/') }}">
+        <img src="{{ app_setting()->footer_logo }}" alt="Brand logo dark" class="max-h-full object-contain" />
+    </a>
+
+    <!-- Light mode logo -->
+    <a class="dark:hidden w-32 h-12 flex_center" href="{{ __url('/') }}">
+        <img src="{{ app_setting()->logo }}" alt="Brand logo light" class="max-h-full object-contain" />
+    </a>
+</div>
+
+
 
         <!-- Right section  -->
         <section class="flex items-center gap-2 md:gap-4">

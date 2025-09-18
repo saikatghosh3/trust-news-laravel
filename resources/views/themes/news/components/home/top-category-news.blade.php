@@ -25,6 +25,9 @@
                 />
             </a> --}}
 
+
+            {{-- changing path for image  --}}
+
          <a
     href="{{ url($homePageTopNews[0]->news->encode_title) }}"
     class="block group overflow-hidden w-full h-52 md:h-80 xl:h-[360px] 2xl:h-[380px] 4xl:h-[460px] object-cover">

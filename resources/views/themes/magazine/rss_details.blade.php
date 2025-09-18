@@ -69,6 +69,7 @@
             </div>
             <!-- banner section -->
             <div class="dark:text-white mt-6">
+
                 <figure class="mb-8">
                     <img class="w-full max-h-[550px]"
                         src="{{ isset($newsDetail['image']) ? $newsDetail['image'] : asset('/assets/news-details-view.png') }}"

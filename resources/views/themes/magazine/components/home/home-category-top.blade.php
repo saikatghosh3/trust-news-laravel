@@ -1,6 +1,6 @@
 <div
   class="border-b dark:border-neutral-700">
-  <a
+  {{-- <a
     href="{{ __url($homePageTopNews[0]->news->encode_title) }}"
     class="block group overflow-hidden w-full h-52 md:h-96 lg:h-96 xl:h-[350px] 2xl:h-[400px] object-cover">
     <img
@@ -8,7 +8,30 @@
       src="{{ isset($homePageTopNews[0]->news->photoLibrary->large_image) ? asset('storage/'.$homePageTopNews[0]->news->photoLibrary->large_image) : asset('/assets/news-details-view.png') }}"
       alt="{{ $homePageTopNews[0]->news->image_alt }}"
     />
-  </a>
+  </a> --}}
+
+   {{-- image path changed  --}}
+   <a
+    href="{{ __url($homePageTopNews[0]->news->encode_title) }}"
+    class="block group overflow-hidden w-full h-52 md:h-96 lg:h-96 xl:h-[350px] 2xl:h-[400px] object-cover"
+>
+    <img
+        class="w-full h-full object-cover group-hover:scale-105 transition_slow"
+        src="{{
+            isset($homePageTopNews[0]->news->photoLibrary->image_base_url)
+                ? $homePageTopNews[0]->news->photoLibrary->image_base_url
+                : (
+                    isset($homePageTopNews[0]->news->photoLibrary->large_image)
+                        ? asset('storage/'.$homePageTopNews[0]->news->photoLibrary->large_image)
+                        : asset('assets/news-details-view.png')
+                )
+        }}"
+        alt="{{ $homePageTopNews[0]->news->image_alt ?? 'News Image' }}"
+    />
+</a>
+
+
+
   <div class="py-4 space-y-2">
     <div
       class="h-7 pl-3 pr-6 text-white uppercase flex justify-center items-center clip-hex-right"

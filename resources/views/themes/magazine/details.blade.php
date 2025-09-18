@@ -80,13 +80,29 @@
             <div class="dark:text-white mt-6">
                 @if (isset($newsDetail->photoLibrary->large_image))
                     <figure class="mb-8">
-                        <img class="w-full max-h-[550px]"
+
+                       
+                        {{-- <img class="w-full max-h-[550px]"
                             src="{{ isset($newsDetail->photoLibrary->large_image) ? asset('storage/' . $newsDetail->photoLibrary->large_image) : asset('/assets/news-details-view.png') }}"
-                            alt="{{ $newsDetail->image_alt }}" />
+                            alt="{{ $newsDetail->image_alt }}" /> --}}
+
+                             {{-- changing the path  but code is not working --}}
+
+                            <img class="w-full max-h-[550px]"
+     src="{{ $newsDetail->photoLibrary && $newsDetail->photoLibrary->large_image
+         ? asset('storage/'.$newsDetail->photoLibrary->large_image)
+         : asset('assets/news-details-view.png') }}"
+     alt="{{ $newsDetail->image_alt ?? 'News Image' }}" />
+
                         <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400 italic text-center">
                             {{ $newsDetail->image_title }}
                         </figcaption>
                     </figure>
+                   
+                   
+
+
+
                 @endif
 
                 <div id="news-content" class="text-base prose-content">

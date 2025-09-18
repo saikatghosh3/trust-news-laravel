@@ -31,14 +31,31 @@
             </div>
         </section>
         <!-- Mobile Brand Logo -->
-        <div class="xl:hidden">
-            <a class="hidden dark:block w-32 h-6 flex_center overflow-hidden" href="{{ __url('/') }}">
-                {{-- <img src="{{ app_setting()->footer_logo }}" alt="Brand logo dark" /> --}}
+        {{-- <div class="xl:hidden">
+            <a class="hidden dark:block w-30 h-6 flex_center overflow-hidden" href="{{ __url('/') }}">
+                <img src="{{ app_setting()->footer_logo }}" alt="Brand logo dark" />
             </a>
-            <a class="dark:hidden w-32 h-6 flex_center overflow-hidden" href="{{ __url('/') }}">
-                {{-- <img src="{{ app_setting()->logo }}" alt="Brand logo light" /> --}}
+            <a class="dark:hidden w-30 h-6 flex_center overflow-hidden" href="{{ __url('/') }}">
+                <img src="{{ app_setting()->logo }}" alt="Brand logo light" />
             </a>
-        </div>
+        </div> --}}
+
+
+
+           {{-- Testing code for responsive and working perfectly --}}
+<div class="xl:hidden">
+  <!-- Dark mode logo -->
+  <a class="hidden dark:block w-32 h-12 flex_center" href="{{ __url('/') }}">
+    <img src="{{ app_setting()->footer_logo }}" alt="Brand logo dark" class="max-h-full object-contain" />
+  </a>
+
+  <!-- Light mode logo -->
+  <a class="dark:hidden w-32 h-12 flex_center" href="{{ __url('/') }}">
+    <img src="{{ app_setting()->logo }}" alt="Brand logo light" class="max-h-full object-contain" />
+  </a>
+</div>
+
+
 
         <!-- Right section  -->
         <section class="flex items-center gap-2 md:gap-4">
