@@ -55,6 +55,10 @@ class NewsController extends Controller
         $data = $this->newsService->formData();
         
         return view('news::create', $data);
+        
+
+      
+
     }
 
     /**

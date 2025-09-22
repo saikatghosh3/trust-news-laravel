@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://trust.test/bn</loc>
-    <lastmod>2025-09-18</lastmod>
+    <lastmod>2025-09-22</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
@@ -49,32 +49,116 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>http://trust.test/bn/category/এনভায়রনমেন্ট/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/category/টেকনোজি/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/category/ট্রাভেল/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/category/বিজনেস/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/category/যোগাযোগ-করুন/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/category/Termsandcondition/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/thisiscustomurl/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/thisiscustomurl/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/thisiscustomurl/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/বীর-পবন-বীর-বাংলা-রহিম-শাহ-তরী-নিয়ে-নিজেরাই-এখন-গ্রামের-পাশের-হাওরে-বাইচের-আয়োজন-করে-তারা/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/thisiscustomurl/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/thisiscustomurl/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/thisiscustomurl/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/bn/thisiscustomurl/</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>http://trust.test/bn/আশুলিয়ায়৬লাশপোড়ানোরমামলাসাবেকএমপিসাইফুলসহ১৬জনেরবিচারশুরু/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>http://trust.test/bn/বিচারককেঘুষদেওয়ারঅভিযোগেপিপিরসনদস্থগিত/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>http://trust.test/bn/আবুসাঈদহত্যামামলায়সাক্ষ্যদিলেনবাবামকবুল/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>http://trust.test/bn/কিশোরহত্যামামলায়সাবেকসিনিয়রসচিবজিয়াউলগ্রেপ্তার/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>http://trust.test/bn/বরগুনায়বিএনপিরঅফিসভাঙচুরমামলায়১২আইনজীবীকারাগারে/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -140,7 +224,7 @@
   </url>
   <url>
     <loc>http://trust.test/bn/গুগলজেমিনিতেএলোস্টোরিবুক/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -152,7 +236,7 @@
   </url>
   <url>
     <loc>http://trust.test/bn/গুগলসার্চেচালুহলোনতুনএআইমোড/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -176,13 +260,13 @@
   </url>
   <url>
     <loc>http://trust.test/bn/ছয়মাসেবাংলাদেশে১২৫বিলিয়নডলারেরবিনিয়োগপ্রস্তাব/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-21</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>http://trust.test/bn/আবারওবাড়লসোনারদাম/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -194,13 +278,13 @@
   </url>
   <url>
     <loc>http://trust.test/bn/আজ৭টিরাজনৈতিকদলেরসাথেবৈঠককরবেনপ্রধানউপদেষ্টা/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>http://trust.test/bn/দক্ষিণকোরিয়ায়বাংলাদেশেররাষ্ট্রদূতেরপরিচয়পত্রপেশ/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -218,7 +302,7 @@
   </url>
   <url>
     <loc>http://trust.test/bn/নুরকেউন্নতচিকিৎসায়দেশেরবাইরেপাঠানোরআহ্বানমির্জাফখরুলের/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <lastmod>2025-09-20</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>

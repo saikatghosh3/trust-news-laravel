@@ -26,14 +26,14 @@
                                 @csrf
                                 @include('backend.photo-library.form')
                                 <div class="row">
-                                    <div class="col-md-12 mt-3 text-start">
+                                    {{-- <div class="col-md-12 mt-3 text-start">
                                         <button type="reset" class="btn btn-danger" title="{{ localize('reset') }}">
                                             <i class="fa fa-undo-alt"></i>
                                         </button>
                                         <button type="submit" class="btn btn-success">
                                             {{ localize('upload_image') }}
                                         </button>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </form>
                         </div>

@@ -161,6 +161,7 @@
         </div>        
     </section>
     {{-- Table Data --}}
+    
     <section class="dashboard_report_table">
         <div class="card">
             <div class="card-header">

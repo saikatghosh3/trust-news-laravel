@@ -77,33 +77,96 @@
                 </div>
             </div>
             <!-- News Details -->
-            <div class="dark:text-white mt-6">
-                @if (isset($newsDetail->photoLibrary->large_image))
-                    <figure class="mb-8">
+            <div class="dark:text-white mt-6">,
+    {{-- @php
+    $raw = $newsDetail->photoLibrary->large_image ?? null; // e.g. "large_xxx.webp" or "uploads/photo-library/large_xxx.webp"
+    $src = asset('assets/news-details-view.png');
 
+    if ($raw) {
+        // normalize
+        $img = ltrim(str_replace(['public/', 'storage/'], '', (string) $raw), '/');
+
+        // ensure prefix
+        if (! \Illuminate\Support\Str::startsWith($img, 'uploads/photo-library/')) {
+            $img = 'uploads/photo-library/' . $img;
+        }
+
+        // (dev-only) existence check
+        // if (app()->isLocal() && ! file_exists(public_path($img))) dump('MISSING FILE: '.public_path($img));
+
+        $src = asset($img);
+    }
+@endphp --}}
+                    {{-- <figure class="mb-8"> --}}
+                             {{-- original code  --}}
                        
                         {{-- <img class="w-full max-h-[550px]"
                             src="{{ isset($newsDetail->photoLibrary->large_image) ? asset('storage/' . $newsDetail->photoLibrary->large_image) : asset('/assets/news-details-view.png') }}"
                             alt="{{ $newsDetail->image_alt }}" /> --}}
 
-                             {{-- changing the path  but code is not working --}}
 
-                            <img class="w-full max-h-[550px]"
+
+                             {{-- changing the path  but code is not working testing code one--}}
+
+                            {{-- <img class="w-full max-h-[550px]"
      src="{{ $newsDetail->photoLibrary && $newsDetail->photoLibrary->large_image
          ? asset('storage/'.$newsDetail->photoLibrary->large_image)
          : asset('assets/news-details-view.png') }}"
-     alt="{{ $newsDetail->image_alt ?? 'News Image' }}" />
+     alt="{{ $newsDetail->image_alt ?? 'News Image' }}" /> --}}
 
-                        <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400 italic text-center">
-                            {{ $newsDetail->image_title }}
-                        </figcaption>
-                    </figure>
+
+              {{-- testing code 2  --}}
+
+     {{-- <figure class="mb-8">
+  <img class="w-full max-h-[550px]" src="{{ $src }}" alt="{{ $newsDetail->image_alt ?? 'News Image' }}">
+  <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400 italic text-center">
+    {{ $newsDetail->image_title }}
+  </figcaption>
+</figure> --}}
                    
                    
 
 
 
-                @endif
+
+{{-- full code testing  --}}
+
+
+@php
+    $defaultImage = asset('assets/news-details-view.png');
+    $largeImage   = $newsDetail->photoLibrary->large_image ?? null;
+    // dd($largeImage);
+
+    if ($largeImage) {
+        // normalize without forcing prefix
+        $imagePath = ltrim(str_replace(['public/', 'storage/'], '', $largeImage), '/');
+
+        // if the path already starts with 'uploads/photo-library', leave it
+        // otherwise prefix it
+        if (!\Illuminate\Support\Str::startsWith($imagePath, 'uploads/photo-library')) {
+            $imagePath = 'uploads/photo-library/' . $imagePath;
+        }
+
+        $src = asset($imagePath);
+    } else {
+        $src = $defaultImage;
+    }
+@endphp
+
+
+<figure class="mb-8">
+    <img class="w-full max-h-[550px]" src="{{ $src }}" alt="{{ $newsDetail->image_alt ?? 'News Image' }}">
+    <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400 italic text-center">
+        {{ $newsDetail->image_title }}
+    </figcaption>
+</figure>
+
+
+
+
+{{-- end testing code  --}}
+
+                
 
                 <div id="news-content" class="text-base prose-content">
                     {!! $newsDetail->news ?? 'null' !!}

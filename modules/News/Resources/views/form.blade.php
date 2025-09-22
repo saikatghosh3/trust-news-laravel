@@ -7,6 +7,7 @@
 
             <div class="col-lg-3 col-md-6">
                 <div class="row form-group">
+                   
                     <label for="language_id" class="col-form-label fw-semibold">
                         {{ localize_uc('language') }}
                         <span class="text-danger">*</span>
@@ -14,11 +15,32 @@
                     <select name="language_id" id="language_id" class="form-control select-basic-single"
                         data-allow-clear="true" data-placeholder="{{ localize_uc('select_language') }}" required>
                         <option value=""></option>
-                        @foreach ($languages as $language)
+
+                        {{-- old code  showing three language  --}}
+
+                        {{-- @foreach ($languages as $languages)
                         <option value="{{ $language->id }}" @selected(old('language_id', $newsMst->language_id ?? null) == $language->id)>
                             {{ $language->langname }}
                         </option>
-                        @endforeach
+                        @endforeach --}}
+                        {{-- end of old code showing three languages  --}}
+
+
+                        {{-- new code for testing  --}}
+                        
+                        @foreach ($languages as $language)
+    @if (!in_array(strtolower($language->langname), ['arabic']))
+        <option value="{{ $language->id }}" 
+            @selected(old('language_id', $newsMst->language_id ?? null) == $language->id)>
+            {{ $language->langname }}
+        </option>
+    @endif
+@endforeach
+
+
+                        {{-- end of new code for testing  --}}
+
+
                     </select>
                     <div class="invalid-feedback error text-danger m-2 d-block">
                         @error('language_id')
@@ -206,7 +228,9 @@
         </div>
         <div class="row">
 
-            <div class="col-lg-4 col-md-6 col-md-4">
+            {{-- previous code --}}
+
+            {{-- <div class="col-lg-4 col-md-6 col-md-4">
                 <div class="form-group">
                     <label class="font-weight-600">{{ localize('image') }}</label>
                     <div class="btn-select-image">
@@ -216,6 +240,7 @@
                                 src="{{ $newsMst->photoLibrary->image_base_url ?? null }}"
                                 alt="{{ $newsMst->photoLibrary->title }}" height="100" width="100" />
                             @endif
+                           
                         </div>
                         <input type="hidden" name="lib_file_selected" id="photo_library_name"
                             value="{{ $newsMst->image ?? null }}">
@@ -229,7 +254,103 @@
                         </div>
                     </div>
                 </div>
+            </div> --}}
+
+
+
+
+
+
+
+        {{--  new code start  and fully working  for previously for uploaded image. --}}
+                  <div class="col-lg-4 col-md-6">
+
+                    {{-- old script just for test  --}}
+                      
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('photoSelected', function (e) {
+                
+                let imageUrl = e.detail.url;
+                const imageTitle = e.detail.title || '';
+
+             
+                if (imageUrl && !/^https?:\/\//.test(imageUrl)) {
+                    imageUrl = "{{ url('/') }}/" + imageUrl.replace(/^\/+/, '');
+                }
+
+                // Update preview
+                const preview = document.getElementById('preview-image');
+                if (preview) {
+                    preview.src = imageUrl;
+                    preview.alt = imageTitle;
+                }
+
+                // Update hidden input
+                const hiddenInput = document.getElementById('photo_library_name');
+                if (hiddenInput) {
+                    hiddenInput.value = e.detail.fileName; // or whatever your backend expects
+                }
+            });
+        });
+    </script> 
+     {{-- end old script  --}}
+
+
+           
+
+
+    <div class="form-group">
+        <label class="font-weight-600">{{ localize('Image') }}</label>
+        <div class="btn-select-image">
+            <div id="photo-library-preview">
+                
+                @php
+                    $img = null;
+
+                    
+                    if (!empty($newsMst) && $newsMst->photoLibrary) {
+                        $img = $newsMst->photoLibrary->image_base_url ?? null;
+                    }
+
+                    if ($img) {
+                        if (preg_match('/^https?:\/\//', $img)) {
+                            
+                            $imageurl = $img;
+                        } else {
+                            
+                            $cleanPath = ltrim($img, '/'); 
+                            $imageurl = asset($cleanPath);
+                        }
+                    } else {
+                        $imageurl = asset('images/default.png');
+                    }
+                @endphp
+                <img id="preview-image"
+                     class="img-fluid img-thumbnail"
+                     src="{{ $imageurl }}"
+                     alt="{{ $newsMst->photoLibrary->title ?? '' }}"
+                     style="height:100px; width:100px;" />
             </div>
+
+            <input type="hidden" name="lib_file_selected" id="photo_library_name"
+                   value="{{ $newsMst->image ?? '' }}">
+
+            <a href="{{ route('photo-library.view') }}" class="photo-library-page text-success">
+                <i class="fa fa-cloud-upload-alt"></i> [image]
+            </a>
+
+            <div class="invalid-feedback error text-danger m-2">
+                @error('lib_file_selected')
+                    {{ $message }}
+                @enderror
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+               {{-- working code for previously uploded image end --}}
 
             <div class="col-lg-4 col-md-6">
                 <div class="row form-group">

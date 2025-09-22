@@ -65,14 +65,14 @@
                                                 @csrf
                                                 @include('backend.photo-library.form')
                                                 <div class="row">
-                                                    <div class="col-md-12 mt-3 text-start">
+                                                    {{-- <div class="col-md-12 mt-3 text-start">
                                                         <button type="reset" class="btn btn-danger" title="{{ localize('reset') }}">
                                                             <i class="fa fa-undo-alt"></i>
                                                         </button>
                                                         <button type="submit" class="btn btn-success">
                                                             {{ localize('upload_image') }}
                                                         </button>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </form>
                                         </div>
@@ -109,7 +109,9 @@
                                                 </div>
                                             </div>
                                             <div class="d-flex flex-wrap align-items-center p-3" id="show-images">
-                                                @foreach ($imageLibraries as $imageLibrary)
+                                                    
+                                                      {{-- old code  --}}
+                                                {{-- @foreach ($imageLibraries as $imageLibrary)
                                                     @php
                                                         $image_path = !$imageLibrary->disk || $imageLibrary->disk == 'local' ? storage_asset_image($imageLibrary->thumb_image) : $imageLibrary->image_base_url;
                                                     @endphp
@@ -123,7 +125,34 @@
                                                             src="{{ $image_path }}"
                                                             alt="{{ $imageLibrary->title }}" />
                                                     </div>
-                                                @endforeach
+                                                @endforeach --}}
+
+                                                 {{-- new code testing  start --}}
+                                                 {{-- it is working perfectly  --}}
+
+                                                    @foreach ($imageLibraries as $imageLibrary)
+    @php
+        
+        $image_path = asset('uploads/photo-library/' . basename($imageLibrary->thumb_image));
+    @endphp
+    <div class="m-2 photo-library-element"
+        data-id="{{ $imageLibrary->uuid }}"
+        data-actual_image_name="{{ $imageLibrary->actual_image_name }}"
+        data-thumb_image="{{ $image_path }}"
+        data-caption="{{ $imageLibrary->title }}">
+        <p class="photo-library-element-title">{{ $imageLibrary->title }}</p>
+        <img class="img-responsive img-thumbnail photo-library-img"
+             src="{{ $image_path }}"
+             alt="{{ $imageLibrary->title }}" />
+    </div>
+@endforeach
+
+
+                      {{-- new code testing end  --}}
+      
+
+
+
                                             </div>
                                             <input type="hidden" id="photo_library_div_id" value="{{ $div_id ?? null }}" />
                                         </div>

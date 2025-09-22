@@ -106,6 +106,8 @@
     </section>
 
     <!-- TECH NEWS START -->
+        {{-- commmented content  for matching the requirement.          --}}
+
     <section class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-0 my-8">
         <!-- Tech News Slider Section -->
 
@@ -149,13 +151,17 @@
     @endif
 
     <!-- Common Section -->
-    <section class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-0 my-8">
+   
+    {{-- unnecessary section   --}}
+
+    
+    {{-- <section class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-0 my-8">
         @foreach ($restNewsGroups as $restNewsGroupItem)
             @if ($restNewsGroupItem->isNotEmpty())
                 @include('themes.magazine.components.home.tech-news-card', ['cardNewsSections' => $restNewsGroupItem])
             @endif
         @endforeach
-    </section>
+    </section> --}}
 
     <!-- RSS Feed News -->
     @if (!empty($rssFeedNews))
