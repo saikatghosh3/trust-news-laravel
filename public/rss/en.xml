@@ -13,13 +13,24 @@
 <description>Latest news from Trust News (en)</description>
 <language>en</language>
 <copyright>Copyright 2025 Trust News</copyright>
-<lastBuildDate>Mon, 22 Sep 2025 17:28:17 +0600</lastBuildDate>
-<pubDate>Mon, 22 Sep 2025 17:28:17 +0600</pubDate>
+<lastBuildDate>Tue, 23 Sep 2025 12:02:31 +0600</lastBuildDate>
+<pubDate>Tue, 23 Sep 2025 12:02:31 +0600</pubDate>
 <image>
 <title>Trust News RSS Feed</title>
 <url>http://trust.test/storage/application/1756705274-logo.png</url>
 <link>http://trust.test</link>
 </image>
+<item>
+<title>This is new headline</title>
+<link>http://trust.test/this-is-new-headline/</link>
+<guid isPermaLink="true">http://trust.test/this-is-new-headline/</guid>
+<atom:link href="http://trust.test/this-is-new-headline/" rel="standout" />
+<description><![CDATA[dsafdsajfagaksdhgkasdjgkljasdlfkjafjsadijfoiweuiwejkfmnsdkahfgwhyetuiewtijewklfmnasdkmfasdhjthweat]]></description>
+<enclosure url="http://trust.test/storage/uploads/photo-library/large_1758559016-photo.jpg" length="0" type="image/jpeg" />
+<dc:creator>Admin</dc:creator>
+<pubDate>Mon, 22 Sep 2025 10:37:38 +0600</pubDate>
+<category>Travel</category>
+</item>
 <item>
 <title>Football legend Philipp Lahm&#039;s insider guide to Munich</title>
 <link>http://trust.test/football-legend-philipp-lahms-insider-guide-to-munich/</link>
@@ -254,17 +265,6 @@ New York's Adirondack Park is the biggest state park in the US – a more-than s
 <enclosure url="http://trust.test/storage/uploads/photo-library/large_1758179412-photo.webp" length="0" type="image/jpeg" />
 <dc:creator>Admin</dc:creator>
 <pubDate>Thu, 18 Sep 2025 01:11:01 +0600</pubDate>
-<category>Travel</category>
-</item>
-<item>
-<title>This is short head one</title>
-<link>http://trust.test/thisiscustomurl/</link>
-<guid isPermaLink="true">http://trust.test/thisiscustomurl/</guid>
-<atom:link href="http://trust.test/thisiscustomurl/" rel="standout" />
-<description><![CDATA[Another travel news for testing]]></description>
-<enclosure url="http://trust.test/storage/uploads/photo-library/large_1758178182-photo.webp" length="0" type="image/jpeg" />
-<dc:creator>Admin</dc:creator>
-<pubDate>Thu, 18 Sep 2025 12:58:48 +0600</pubDate>
 <category>Travel</category>
 </item>
 <item>

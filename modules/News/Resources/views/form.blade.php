@@ -263,11 +263,12 @@
 
 
         {{--  new code start  and fully working  for previously for uploaded image. --}}
-                  <div class="col-lg-4 col-md-6">
 
-                    {{-- old script just for test  --}}
-                      
-    <script>
+
+
+                  <div class="col-lg-4 col-md-6">    
+                    {{-- old script start                  --}}
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function () {
             window.addEventListener('photoSelected', function (e) {
                 
@@ -279,22 +280,56 @@
                     imageUrl = "{{ url('/') }}/" + imageUrl.replace(/^\/+/, '');
                 }
 
-                // Update preview
+              
                 const preview = document.getElementById('preview-image');
                 if (preview) {
                     preview.src = imageUrl;
                     preview.alt = imageTitle;
                 }
 
-                // Update hidden input
+               
                 const hiddenInput = document.getElementById('photo_library_name');
                 if (hiddenInput) {
-                    hiddenInput.value = e.detail.fileName; // or whatever your backend expects
+                    hiddenInput.value = e.detail.fileName; 
                 }
             });
         });
-    </script> 
-     {{-- end old script  --}}
+    </script>  --}}
+    
+    {{-- old script end  --}}
+
+    {{-- new script test  --}}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        window.addEventListener('photoSelected', function (e) {
+
+            let imageUrl = e.detail.url;           
+            const imageTitle = e.detail.title || '';
+
+            
+            if (imageUrl && !imageUrl.startsWith('blob:') && !/^https?:\/\//.test(imageUrl)) {
+                imageUrl = "{{ url('/') }}/" + imageUrl.replace(/^\/+/, '');
+            }
+
+            
+            const preview = document.getElementById('preview-image');
+            if (preview) {
+                preview.src = imageUrl;
+                preview.alt = imageTitle;
+            }
+
+           
+            const hiddenInput = document.getElementById('photo_library_name');
+            if (hiddenInput) {
+                hiddenInput.value = e.detail.fileName || '';
+            }
+        });
+    });
+</script>
+
+
+    {{-- new scritp end  --}}
 
 
            
@@ -351,6 +386,15 @@
 
 
                {{-- working code for previously uploded image end --}}
+
+
+
+      {{-- new code test start **************************** --}}
+ 
+
+      {{-- new code test end********************************  --}}
+
+
 
             <div class="col-lg-4 col-md-6">
                 <div class="row form-group">
