@@ -312,14 +312,14 @@
                 imageUrl = "{{ url('/') }}/" + imageUrl.replace(/^\/+/, '');
             }
 
-            
+            // Preview element update
             const preview = document.getElementById('preview-image');
             if (preview) {
                 preview.src = imageUrl;
                 preview.alt = imageTitle;
             }
 
-           
+            // Hidden input update
             const hiddenInput = document.getElementById('photo_library_name');
             if (hiddenInput) {
                 hiddenInput.value = e.detail.fileName || '';
