@@ -20,7 +20,7 @@
     <!-- Details Page News (right side news sticky) Start -->
 
     <section class="container mt-2 pb-8 grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 4xl:grid-cols-4 gap-4">
-
+      
         <!-- Left section news -->
         <section class="dark:text-white lg:col-span-2 xl:col-span-2 4xl:col-span-3 gap-6">
             <!-- heading -->

@@ -48,14 +48,62 @@ class PhotoLibraryDataTable extends DataTable
 
                 return $button;
             })
-            ->editColumn('image_base_url', function ($row) {
+            // old code for edit  
 
-                if ($row->image_base_url) {
-                    return '<input type="text" value="' . $row->image_base_url . '" readonly="">';
-                }
+            // ->editColumn('image_base_url', function ($row) {
 
-                return null;
-            })
+            //     if ($row->image_base_url) {
+            //         return '<input type="text" value="' . $row->image_base_url . '" readonly="">';
+            //     }
+
+            //     return null;
+            // })
+
+                //  old code  end  
+
+        //  new code for testing start 
+     ->editColumn('image_base_url', function ($row) {
+    if ($row->image_base_url) {
+        return '
+            <div class="d-flex align-items-center gap-2">
+                <input type="text" id="url-'.$row->id.'" value="'.$row->image_base_url.'" readonly class="form-control form-control-sm" style="max-width:250px;">
+                <button type="button" 
+                    id="copy-btn-'.$row->id.'"
+                    class="btn btn-sm" 
+                    style="background-color:#188753; color:#fff; border:none;"
+                    onclick="
+                        const input = document.getElementById(\'url-'.$row->id.'\');
+                        // Try Clipboard API first
+                        if (navigator.clipboard && window.isSecureContext) {
+                            navigator.clipboard.writeText(input.value).then(() => {
+                                const btn = document.getElementById(\'copy-btn-'.$row->id.'\');
+                                const oldHTML = btn.innerHTML;
+                                btn.innerHTML = \'Copied\';
+                                setTimeout(() => btn.innerHTML = oldHTML, 1500);
+                            }).catch(err => {
+                                console.error(err);
+                            });
+                        } else {
+                            // Fallback for HTTP/non-secure
+                            input.select();
+                            document.execCommand(\'copy\');
+                            const btn = document.getElementById(\'copy-btn-'.$row->id.'\');
+                            const oldHTML = btn.innerHTML;
+                            btn.innerHTML = \'Copied\';
+                            setTimeout(() => btn.innerHTML = oldHTML, 1500);
+                        }
+                    ">
+                    <i class="fa fa-copy"></i>
+                </button>
+            </div>
+        ';
+    }
+    return null;
+})
+
+        
+        // new code for testing end 
+
             ->rawColumns(['category_name', 'image_path', 'action', 'image_base_url']);
     }
 
@@ -90,7 +138,14 @@ class PhotoLibraryDataTable extends DataTable
             ->responsive(true)
             ->selectStyleSingle()
             ->lengthMenu([[10, 25, 50, 100, -1], [10, 25, 50, 100, 'All']])
-            ->dom("<'row mb-3'<'col-md-4'l><'col-md-4 text-center'B><'col-md-4'f>>rt<'bottom'<'row'<'col-md-6'i><'col-md-6'p>>><'clear'>")
+            // old code 
+            // ->dom("<'row mb-3'<'col-md-4'l><'col-md-4 text-center'B><'col-md-4'f>>rt<'bottom'<'row'<'col-md-6'i><'col-md-6'p>>><'clear'>")
+            
+            //  new code for position changed
+          ->dom("<'row mb-3'<'col-md-4'l><'col-md-4'f><'col-md-4 text-end'B>>rt<'bottom'<'row'<'col-md-6'i><'col-md-6'p>>><'clear'>")
+
+
+
             ->buttons([
                 Button::make('csv')
                     ->className('btn btn-secondary buttons-csv buttons-html5 btn-sm prints')
@@ -103,7 +158,7 @@ class PhotoLibraryDataTable extends DataTable
     }
 
     /**
-     * Get columns.
+     * Get columns..
      *
      * @return array
      */

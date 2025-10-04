@@ -79,6 +79,7 @@
             <!-- News Details -->
              <div class="dark:text-white mt-6">
                 
+                
                 @if (isset($newsDetail->photoLibrary->large_image))
                     <figure class="mb-8">
                         {{-- old code  --}}

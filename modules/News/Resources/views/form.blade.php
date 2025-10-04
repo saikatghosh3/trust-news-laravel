@@ -266,9 +266,10 @@
 
 
 
-                  <div class="col-lg-4 col-md-6">    
-                    {{-- old script start                  --}}
-    {{-- <script>
+                  <div class="col-lg-4 col-md-6">  
+                  
+                    {{-- old script start     --}}
+      <script>
         document.addEventListener('DOMContentLoaded', function () {
             window.addEventListener('photoSelected', function (e) {
                 
@@ -294,13 +295,13 @@
                 }
             });
         });
-    </script>  --}}
+    </script>  
     
     {{-- old script end  --}}
 
-    {{-- new script test  --}}
+    {{-- new script test   and working  checking --}}
 
-<script>
+ {{-- <script>
     document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('photoSelected', function (e) {
 
@@ -312,33 +313,33 @@
                 imageUrl = "{{ url('/') }}/" + imageUrl.replace(/^\/+/, '');
             }
 
-            // Preview element update
+            
             const preview = document.getElementById('preview-image');
             if (preview) {
                 preview.src = imageUrl;
                 preview.alt = imageTitle;
             }
 
-            // Hidden input update
+            
             const hiddenInput = document.getElementById('photo_library_name');
             if (hiddenInput) {
                 hiddenInput.value = e.detail.fileName || '';
             }
         });
     });
-</script>
+</script> --}}
 
 
-    {{-- new scritp end  --}}
+    {{-- new script end  and working. --}}
 
 
            
-
 
     <div class="form-group">
         <label class="font-weight-600">{{ localize('Image') }}</label>
         <div class="btn-select-image">
             <div id="photo-library-preview">
+                
                 
                 @php
                     $img = null;
@@ -358,7 +359,11 @@
                             $imageurl = asset($cleanPath);
                         }
                     } else {
-                        $imageurl = asset('images/default.png');
+                        // old url 
+                        // $imageurl = asset('images/default.jpg');
+
+                        // // new url 
+                         $imageurl = asset('assets/default.jpg');
                     }
                 @endphp
                 <img id="preview-image"
@@ -493,6 +498,7 @@
                             @enderror
                         </div>
                         <div class="input-group-append position-absolute end-0">
+                           
                             <button type="button" class="btn btn-primary show-common-modal"
                                 data-modal_id="report_modal">
                                 <i class="fas fa-plus text-white fs-21"></i>

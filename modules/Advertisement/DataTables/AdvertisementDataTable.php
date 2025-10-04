@@ -113,7 +113,13 @@ class AdvertisementDataTable extends DataTable
             ->responsive(true)
             ->selectStyleSingle()
             ->lengthMenu([[10, 25, 50, 100, -1], [10, 25, 50, 100, 'All']])
-            ->dom("<'row mb-3'<'col-md-4'l><'col-md-4 text-center'B><'col-md-4'f>>rt<'bottom'<'row'<'col-md-6'i><'col-md-6'p>>><'clear'>")
+            // old code 
+            // ->dom("<'row mb-3'<'col-md-4'l><'col-md-4 text-center'B><'col-md-4'f>>rt<'bottom'<'row'<'col-md-6'i><'col-md-6'p>>><'clear'>")
+            // new code for change position 
+             ->dom("<'row mb-3'<'col-md-4'l><'col-md-4'f><'col-md-4 text-end'B>>rt<'bottom'<'row'<'col-md-6'i><'col-md-6'p>>><'clear'>")
+
+            
+
             ->buttons([
                 Button::make('csv')
                     ->className('btn btn-secondary buttons-csv buttons-html5 btn-sm prints')

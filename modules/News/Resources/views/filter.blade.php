@@ -1,4 +1,5 @@
 <div id="collapseFilter" class="collapse bg-white mb-5">
+    
     <form action="javascript:void(0);" id="data-table-filter" data-filter-table="#news-table">
         <div class="row fw-bold text-capitalize">
             <div class="col-xl-2 col-md-6 col-12">

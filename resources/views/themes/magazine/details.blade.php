@@ -46,11 +46,27 @@
         <!-- Left section news -->
         <section class="lg:col-span-2 xl:col-span-2 4xl:col-span-3 gap-6">
             <!-- heading -->
-            <div class="">
-                <div class="h-7 pl-3 pr-6 text-white uppercase flex justify-center items-center bg-brand-primary clip-hex-right"
+            {{-- old code  --}}
+            {{-- <div class=""> 
+                 <div class="h-7 pl-3 pr-6 text-white uppercase flex justify-center items-center bg-brand-primary clip-hex-right"
                     {!! bgColorStyle($newsDetail->category->color_code) !!}>
                     {{ Str::upper($newsDetail->category->category_name) }}
-                </div>
+                  
+                </div> --}}
+
+                {{-- new code and perfectly working --}}
+            
+                <div class="xl:mt-0 lg:mt-6 md:mt-8 sm:mt-10 mt-12">
+    <div
+        class="h-7 pl-3 pr-6 text-white uppercase flex justify-center items-center bg-brand-primary clip-hex-right"
+        {!! bgColorStyle($newsDetail->category->color_code) !!}>
+        {{ Str::upper($newsDetail->category->category_name) }}
+    </div>
+</div>
+
+
+           {{-- new code  and perfectly working end  --}}
+
                 @if ($newsDetail->stitle)
                     <h2 class="dark:text-white mt-2">{{ $newsDetail->stitle }}</h2>
                 @endif
@@ -58,6 +74,7 @@
                     {{ $newsDetail->title }}
                 </h1>
                 <div class="flex md:items-center justify-between flex-col md:flex-row gap-4 mt-2">
+                
                     <div class="dark:text-white capitalize flex items-center gap-1 text-sm">
                         <span>{{ $newsDetail->postByUser->full_name ?? localize('unknown') }}</span>
                         <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -73,11 +90,349 @@
                     </div>
 
                     <!-- Social section -->
+                
                     @include ('themes.magazine.components.common.social-section')
+
+                    {{-- ***************experiment code start******************* --}}
+                     
+                        
+
+{{-- <div class="my-4 flex justify-end ">
+    <button 
+        onclick="printNews()" 
+        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-all">
+        🖨️
+    </button>
+</div> --}}
+
+
+
+<script>
+function printNews() {
+    // Get the content
+    const title = document.querySelector('h1').innerText;
+    
+    // Try multiple ways to get the image
+    let imageUrl = '';
+    const imageElement = document.querySelector('figure.printable-image img') || 
+                        document.querySelector('figure.mb-8 img') || 
+                        document.querySelector('figure img') ||
+                        document.querySelector('.printable-image img');
+    
+    if (imageElement) {
+        imageUrl = imageElement.src; 
+    }
+    
+    const content = document.getElementById('news-content').innerHTML;
+    // logo path adjuted
+    const logoUrl = `{{ asset('assets/logo2.jpg') }}`; 
+    const siteName = `{{ config('app.name', 'News Site') }}`;
+    
+    // Debug - check what we got
+    console.log('Title:', title);
+    console.log('Image URL:', imageUrl);
+    console.log('Content length:', content.length);
+    
+    // Create new window
+    const printWindow = window.open('', '_blank', 'width=800,height=600');
+    
+    // Write HTML
+    printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Print - ${title.replace(/'/g, "\\'")}</title>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 20mm;
+                    color: #000;
+                    background: white;
+                }
+                .header {
+                    text-align: center;
+                    margin-bottom: 20px;
+                    padding-bottom: 15px;
+                    border-bottom: 2px solid #333;
+                }
+                .logo {
+                    max-width: 350px;
+                    height: auto;
+                    margin: 0 auto 2px;
+                    display: block;
+                }
+           
+                h1 {
+                    font-size: 22pt;
+                    margin-top: 3rem;
+                    font-weight: bold;
+                    text-align: left;
+                }
+                .news-image-container {
+                    width: 100%;
+                    margin: 20px 0;
+                    text-align: center;
+                }
+                .news-image {
+                    max-width: 100%;
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    margin: 0 auto;
+                }
+                .content {
+                    font-size: 11pt;
+                    line-height: 1.7;
+                    text-align: justify;
+                }
+                .content p {
+                    margin-bottom: 12px;
+                }
+                .content * {
+                    color: #000 !important;
+                    background: transparent !important;
+                }
+                .content img {
+                    max-width: 100%;
+                    height: auto;
+                    margin: 15px 0;
+                }
+                @media print {
+                    @page {
+                        size: A4;
+                        margin: 15mm;
+                    }
+                    body {
+                        padding: 0;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <img src="${logoUrl}" alt="Logo" class="logo" onerror="this.style.display='none'">
+                
+            </div>
+            
+            <h1>${title.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</h1>
+            
+            ${imageUrl ? `<div class="news-image-container"><img src="${imageUrl}" alt="News Image" class="news-image"></div>` : '<p style="color:red;">No image found</p>'}
+            
+            <div class="content">${content}</div>
+        </body>
+        </html>
+    `);
+    
+    printWindow.document.close();
+    
+    // Give more time for images to load
+    setTimeout(() => {
+        printWindow.print();
+        setTimeout(() => printWindow.close(), 1500);
+    }, 1500);
+}
+</script>
+                    {{--************************ experiment code end*******************  --}}
                 </div>
             </div>
+
+
+
+    {{-- download button  code start   --}}
+   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+function downloadSocialCard() {
+    // Get the content
+    const title = document.querySelector('h1').innerText;
+    
+    // Get the image
+    let imageUrl = '';
+    const imageElement = document.querySelector('figure.printable-image img') || 
+                        document.querySelector('figure.mb-8 img') || 
+                        document.querySelector('figure img') ||
+                        document.querySelector('.printable-image img');
+    
+    if (imageElement) {
+        imageUrl = imageElement.src; 
+    }
+    
+    const logoUrl = `{{ asset('assets/logo3.png') }}`; 
+    const siteName = `{{ config('app.name', 'News Site') }}`;
+    const websiteUrl = window.location.origin;
+    
+    // Create a hidden container for the card
+    const cardContainer = document.createElement('div');
+    cardContainer.style.position = 'fixed';
+    cardContainer.style.left = '-9999px';
+    cardContainer.style.top = '0';
+    document.body.appendChild(cardContainer);
+    
+    // Create the card HTML
+  cardContainer.innerHTML = `
+    <div id="social-card" style="max-width: 800px; width: 100%; background: white; font-family: Arial, sans-serif; margin: 0 auto;">
+        <!-- Image Section with Logo Overlay (RED BORDER) -->
+        <div style="position: relative; border: 8px solid #dc2626; overflow: hidden;">
+            <img src="${imageUrl}" style="width: 100%; height: auto; min-height: 250px; max-height: 600px; object-fit: cover; display: block;" crossorigin="anonymous">
+            
+            <!-- Logo Overlay (Top Right) -->
+            <div style="position: absolute; top: 10px; right: 10px; z-index: 10; background: white; padding: 8px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+                <img src="${logoUrl}" style="width: clamp(80px, 15vw, 150px); height: auto; display: block;" crossorigin="anonymous">
+            </div>
+        </div>
+        
+        <!-- Headline Section (BLUE BACKGROUND) -->
+        <div style="background: #2563eb; padding: clamp(15px, 4vw, 30px); color: white;">
+            <h1 style="font-size: clamp(18px, 4vw, 32px); font-weight: bold; margin: 0; line-height: 1.4; word-wrap: break-word;">
+                ${title.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+            </h1>
+        </div>
+        
+        <!-- Comment Section (BLUE BACKGROUND) -->
+        <div style="background: #2563eb; padding: clamp(15px, 3vw, 25px); color: white; text-align: center;">
+            <p style="font-size: clamp(14px, 2.5vw, 20px); margin: 0; font-weight: 500;">
+                >> বিস্তারিত সংবাদ কমেন্ট সেকশনে দেখুন 
+            </p>
+        </div>
+        
+        <!-- Social Media Links (BLUE BACKGROUND) -->
+        <div style="background: #2563eb; padding: clamp(15px, 3vw, 25px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(15px, 3vw, 40px);">
+            <!-- Facebook -->
+            <div style="display: flex; align-items: center; gap: 8px; color: white; min-width: 0;">
+                <svg style="width: clamp(24px, 4vw, 32px); height: clamp(24px, 4vw, 32px); flex-shrink: 0; fill: white;" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500; word-break: break-word;">facebook.com/trustnewspressbd</span>
+            </div>
+            
+            <!-- YouTube -->
+            <div style="display: flex; align-items: center; gap: 8px; color: white; min-width: 0;">
+                <svg style="width: clamp(24px, 4vw, 32px); height: clamp(24px, 4vw, 32px); flex-shrink: 0; fill: white;" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500; word-break: break-word;">youtube.com/@trustnews-bd</span>
+            </div>
+            
+            <!-- Website -->
+            <div style="display: flex; align-items: center; gap: 8px; color: white; min-width: 0;">
+                <svg style="width: clamp(24px, 4vw, 32px); height: clamp(24px, 4vw, 32px); flex-shrink: 0; fill: white;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 6h-3.45c-.19-1.18-.57-2.28-1.07-3.27 1.87.83 3.34 2.3 4.52 3.91zM12 4c.53.89.94 1.89 1.22 2.93h-2.44C11.06 5.89 11.47 4.89 12 4zM4.07 12c0-.66.08-1.3.21-1.92h3.69c-.09.63-.14 1.31-.14 2s.05 1.37.14 2H4.28c-.13-.62-.21-1.26-.21-1.92zm1.9 4h3.45c.19 1.18.57 2.28 1.07 3.27-1.87-.83-3.34-2.3-4.52-3.91zM12 20c-.53-.89-.94-1.89-1.22-2.93h2.44C12.94 18.11 12.53 19.11 12 20zm2.36-1.73c.5-.99.88-2.09 1.07-3.27h3.45c-.83 1.6-2.26 3.07-4.52 3.91zM12 14c-.66 0-1.3-.05-1.92-.14V10.14C10.7 10.05 11.34 10 12 10s1.3.05 1.92.14v3.72C13.3 13.95 12.66 14 12 14zm-1.22-5.07h2.44C13.06 8.89 12.53 7.89 12 7.07 11.47 7.89 10.94 8.89 10.78 8.93z"/>
+                </svg>
+                <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500; word-break: break-word;">trustnews.press</span>
+            </div>
+        </div>
+    </div>
+`;
+    
+    // Wait for images to load
+    const images = cardContainer.querySelectorAll('img');
+    let loadedImages = 0;
+    const totalImages = images.length;
+    
+    const checkImagesLoaded = () => {
+        loadedImages++;
+        if (loadedImages === totalImages) {
+            generateImage();
+        }
+    };
+    
+    images.forEach(img => {
+        if (img.complete) {
+            checkImagesLoaded();
+        } else {
+            img.onload = checkImagesLoaded;
+            img.onerror = checkImagesLoaded;
+        }
+    });
+    
+    // If no images, generate immediately
+    if (totalImages === 0) {
+        generateImage();
+    }
+    
+
+    //    working function  for download
+
+    function generateImage() {
+        const card = document.getElementById('social-card');
+        
+        html2canvas(card, {
+            scale: 2,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: '#ffffff'
+        }).then(canvas => {
+        
+            canvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${title.substring(0, 30).replace(/[^a-z0-9]/gi, '_')}_card.png`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+            
+                document.body.removeChild(cardContainer);
+            });
+        });
+    }
+
+    // working function  to download end 
+
+    // to see the preview function start 
+//           function generateImage() {
+//     const card = document.getElementById('social-card');
+    
+//     // PREVIEW MODE: Show the card on screen instead of hidden
+//     cardContainer.style.position = 'fixed';
+//     cardContainer.style.left = '50%';
+//     cardContainer.style.top = '50%';
+//     cardContainer.style.transform = 'translate(-50%, -50%)';
+//     cardContainer.style.zIndex = '9999';
+//     cardContainer.style.boxShadow = '0 0 50px rgba(0,0,0,0.5)';
+//     cardContainer.style.maxWidth = '90vw';
+//     cardContainer.style.maxHeight = '90vh';
+//     cardContainer.style.overflow = 'auto';
+    
+//     // Add close button
+//     const closeBtn = document.createElement('button');
+//     closeBtn.innerHTML = '❌ Close';
+//     closeBtn.style.position = 'fixed';
+//     closeBtn.style.top = '20px';
+//     closeBtn.style.right = '20px';
+//     closeBtn.style.zIndex = '10000';
+//     closeBtn.style.padding = '10px 20px';
+//     closeBtn.style.background = '#dc2626';
+//     closeBtn.style.color = 'white';
+//     closeBtn.style.border = 'none';
+//     closeBtn.style.borderRadius = '5px';
+//     closeBtn.style.cursor = 'pointer';
+//     closeBtn.style.fontSize = '16px';
+//     closeBtn.onclick = () => {
+//         document.body.removeChild(cardContainer);
+//         document.body.removeChild(closeBtn);
+//     };
+//     document.body.appendChild(closeBtn);
+
+// }
+    // to see the preview function  end 
+}
+</script>
+       
+    {{-- download button code  end  --}}
+
             <!-- News Details -->
             <div class="dark:text-white mt-6">,
+                
     {{-- @php
     $raw = $newsDetail->photoLibrary->large_image ?? null; // e.g. "large_xxx.webp" or "uploads/photo-library/large_xxx.webp"
     $src = asset('assets/news-details-view.png');
@@ -135,7 +490,7 @@
 @php
     $defaultImage = asset('assets/news-details-view.png');
     $largeImage   = $newsDetail->photoLibrary->large_image ?? null;
-    // dd($largeImage);
+    
 
     if ($largeImage) {
         // normalize without forcing prefix

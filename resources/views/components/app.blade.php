@@ -19,10 +19,11 @@
     <link rel="shortcut icon" class="favicon_show" href="{{ app_setting()->favicon }}">
     @include('backend.layouts.assets.css')
     @stack('css')
+  
 </head>
 
 <body class="fixed sidebar-mini {{ $bodyClass }}">
-    <!-- Page Loader -->
+    <!-- old  Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
@@ -38,7 +39,11 @@
             <p>{{ localize('please_wait') }}</p>
         </div>
     </div>
-    <!-- #END# Page Loader -->
+    <!--  old #END# Page Loader -->
+
+     
+
+
     <div class="wrapper">
         @include('backend.layouts.sidebar')
         <!-- Page Content  -->
@@ -312,6 +317,9 @@
             toastr.error("{{ session('toastr') }}");
         @endif
     </script>
+
+    
+   
 </body>
 
 </html>

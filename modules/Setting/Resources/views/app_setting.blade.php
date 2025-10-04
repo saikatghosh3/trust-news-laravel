@@ -15,6 +15,7 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
+                        
                         <h6 class="fs-17 fw-semi-bold mb-0">{{ localize('edit_apps_setting') }}</h6>
                     </div>
                 </div>

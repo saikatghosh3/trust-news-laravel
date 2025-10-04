@@ -161,8 +161,9 @@
         </div>        
     </section>
     {{-- Table Data --}}
-    
-    <section class="dashboard_report_table">
+    {{-- old code start  --}}
+
+    {{-- <section class="dashboard_report_table"> 
         <div class="card">
             <div class="card-header">
                 <h6 class="fs-17 font-weight-600 mb-0">{{ucwords(localize('latest_posts'))}}</h6>
@@ -260,11 +261,153 @@
             </div>
         </div>
     </section>
-    
+     --}}
+
+     {{-- old code end  --}}
 
     
     
+{{-- new code start  and perfectly woring for employee dashboard --}}
 
+<section class="dashboard_report_table"> 
+    <div class="card">
+        <div class="card-header">
+            <h6 class="fs-17 font-weight-600 mb-0">{{ ucwords(localize('latest_posts')) }}</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example" class="table display table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{ localize('image') }}</th>
+                            <th>{{ localize('title') }}</th>
+                            <th>{{ localize('category') }}</th>
+                            <th>{{ localize('reporter') }}</th>
+                            <th>{{ localize('read_hit') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($latest_posts as $latest)
+                            @php
+                                $imageurl = null;
+                                $img = $latest->thumb_image ?? null;
+
+                                if ($img) {
+                                    
+                                    if (preg_match('/^https?:\\/\\//i', $img)) {
+                                        $imageurl = $img;
+                                    } else {
+                                        try {
+                                          
+                                            if (\Illuminate\Support\Facades\Storage::disk('public')->exists($img)) {
+                                                $imageurl = asset('storage/' . ltrim($img, '/'));
+                                            }
+                                         
+                                            elseif (file_exists(public_path($img))) {
+                                                $imageurl = asset(ltrim($img, '/'));
+                                            }
+                                        
+                                            else {
+                                                $imageurl = asset(ltrim($img, '/'));
+                                            }
+                                        } catch (\Exception $e) {
+                                            
+                                            if (function_exists('storage_asset_image')) {
+                                                $tmp = storage_asset_image($img);
+                                                if ($tmp) $imageurl = $tmp;
+                                            }
+                                        }
+                                    }
+                                }
+                            @endphp
+
+                            <tr>
+                                <td>
+                                    @if($imageurl)
+                                        <img src="{{ $imageurl }}" alt="{{ $latest->title }}" style="height:60px; width:auto; display:block;">
+                                    @else
+                                        <span>N/A</span>
+                                    @endif
+                                </td>
+                                <td>{{ $latest->title }}</td>
+                                <td>{{ $latest->category_name }}</td>
+                                <td>{{ $latest->name }}</td>
+                                <td>{{ $latest->reader_hit }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h6 class="fs-17 font-weight-600 mb-0">{{ ucwords(localize('popular_posts')) }}</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example2" class="table display table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{ localize('image') }}</th>
+                            <th>{{ localize('title') }}</th>
+                            <th>{{ localize('category') }}</th>
+                            <th>{{ localize('reporter') }}</th>
+                            <th>{{ localize('read_hit') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($populer_posts as $populer)
+                            @php
+                                $imageurl = null;
+                                $img = $populer->thumb_image ?? null;
+
+                                if ($img) {
+                                    if (preg_match('/^https?:\\/\\//i', $img)) {
+                                        $imageurl = $img;
+                                    } else {
+                                        try {
+                                            if (\Illuminate\Support\Facades\Storage::disk('public')->exists($img)) {
+                                                $imageurl = asset('storage/' . ltrim($img, '/'));
+                                            } elseif (file_exists(public_path($img))) {
+                                                $imageurl = asset(ltrim($img, '/'));
+                                            } else {
+                                                $imageurl = asset(ltrim($img, '/'));
+                                            }
+                                        } catch (\Exception $e) {
+                                            if (function_exists('storage_asset_image')) {
+                                                $tmp = storage_asset_image($img);
+                                                if ($tmp) $imageurl = $tmp;
+                                            }
+                                        }
+                                    }
+                                }
+                            @endphp
+
+                            <tr>
+                                <td>
+                                    @if($imageurl)
+                                        <img src="{{ $imageurl }}" alt="{{ $populer->title }}" style="height:60px; width:auto; display:block;">
+                                    @else
+                                        <span>N/A</span>
+                                    @endif
+                                </td>
+                                <td>{{ $populer->title }}</td>
+                                <td>{{ $populer->category_name }}</td>
+                                <td>{{ $populer->name }}</td>
+                                <td>{{ $populer->reader_hit }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{-- new code end and perfectly working for employee dashboard.  --}}
   
 
     

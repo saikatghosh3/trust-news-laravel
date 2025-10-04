@@ -49,6 +49,7 @@
                 </div>
 
                 <div class="flex md:items-center justify-between flex-col md:flex-row gap-4 mt-2">
+                    
                     <div class="dark:text-white capitalize flex items-center gap-1 text-sm">
                         <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                             <path fill="currentColor"

@@ -24,7 +24,8 @@
 
                         <div class="col-md-12 mt-3">
                             <div class="row">
-                                <label for="title"
+                                
+                            <label for="title"
                                     class="col-form-label col-sm-3 col-md-12 col-xl-3 fw-semibold">{{ localize('title') }}</label>
                                 <div class="col-sm-9 col-md-12 col-xl-9">
                                     <input type="text" class="form-control" id="title" name="title"
@@ -84,12 +85,19 @@
                                 @endif
                             </div>
                         </div>
-
-
-                        <div class="col-md-12 mt-3">
-                            <div class="row">
+                           
+                         {{-- This portion i have to fix  --}}
+                         {{-- old code  --}}
+                         {{-- <div class="col-md-12 mt-3">
+                          <div class="row">
+                                 
+                               
                                 <label for="default_image"
-                                    class="col-form-label col-sm-3 col-md-12 col-xl-3 fw-semibold">{{ localize('default_image') }}</label>
+                                    class="col-form-label col-sm-3 col-md-12 col-xl-3 fw-semibold">{{ localize('default_image') }}</label> 
+                                
+
+                                    
+ 
                                 <div class="col-sm-9 col-md-12 col-xl-9">
 
                                     <input type="file" class="form-control" id="default_image" name="default_image"
@@ -102,7 +110,54 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div> --}}
+                        {{-- old code end  --}}
+
+                        {{-- new code  fully  working testing  for default image.--}}
+                      
+                        <div class="col-md-12 mt-3">
+                      <div class="row">
+
+            <label for="default_image"
+               class="col-form-label col-sm-3 col-md-12 col-xl-3 fw-semibold">
+               {{ localize('default_image') }}
+            </label>
+
+            <div class="col-sm-9 col-md-12 col-xl-9">
+
+             <input type="file" class="form-control" id="default_image" name="default_image"
+                   aria-describedby="categoryNote" accept="image/*" autocomplete="off"
+                   onchange="previewImage(event)">
+
+            <small id="categoryNote" class="form-text text-black">
+                N.B: {{ localize('max size 1MB') }}
+            </small>
+
+            <div class="mt-2">
+                 <img src="{{ (!empty($existing_meta->default_image) && file_exists(storage_path('app/public/' . $existing_meta->default_image))) 
+             ? asset('storage/' . $existing_meta->default_image) 
+             : asset('assets/default.jpg') }}" 
+      id="output" class="img-thumbnail" width="300" style="height:120px !important;">
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+function previewImage(event) {
+    const output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+        URL.revokeObjectURL(output.src) 
+    }
+}
+</script>
+
+                        {{--  new code end and fully working testing for default image  --}}
 
                     </div>
 

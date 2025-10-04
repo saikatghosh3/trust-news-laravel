@@ -47,6 +47,7 @@
         <section class="lg:col-span-2 xl:col-span-2 4xl:col-span-3 gap-6">
             <!-- heading -->
             <div class="">
+                
                 <div class="h-7 pl-3 pr-6 text-white uppercase flex justify-center items-center bg-brand-primary clip-hex-right"
                     {!! bgColorStyle($newsDetail->category->color_code) !!}>
                     {{ Str::upper($newsDetail->category->category_name) }}
@@ -58,6 +59,7 @@
                     {{ $newsDetail->title }}
                 </h1>
                 <div class="flex md:items-center justify-between flex-col md:flex-row gap-4 mt-2">
+                   
                     <div class="dark:text-white capitalize flex items-center gap-1 text-sm">
                         <span>{{ $newsDetail->postByUser->full_name ?? localize('unknown') }}</span>
                         <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

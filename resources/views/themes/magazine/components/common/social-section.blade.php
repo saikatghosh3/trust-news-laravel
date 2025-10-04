@@ -7,6 +7,16 @@
         href="javascript:void(0)" onclick="decreaseFont()">
         <span>{{ localize('a') }}</span>-
     </a>
+          <!-- Print Button -->
+    <button 
+        onclick="printNews()" 
+        class="w-[28px] h-[28px] md:w-[36px] md:h-[36px] xl:w-[42px] xl:h-[42px] flex justify-center items-center bg-white text-white border border-blue-500 hover:bg-blue-700  transition-all duration-500 ease-in-out">
+        🖨️
+    </button>
+
+    
+
+
     <a href="javascript:void(0)" onclick="copyPageURL(this)"
         class="w-6 h-6 xl:w-10 xl:h-10 flex justify-center items-center group p-1 text-neutral-800 ring-1 ring-neutral-600 transition-all duration-500 ease-in-out hover:bg-neutral-600 hover:text-white">
         <div class="copy-icon hover:text-white dark:text-white">
@@ -17,6 +27,17 @@
             </svg>
         </div>
     </a>
+         {{--download button  added  --}}
+
+
+ <!-- Download Button -->
+    <button 
+        onclick="downloadSocialCard()" 
+        class="w-[28px] h-[28px] md:w-[36px] md:h-[36px] xl:w-[42px] xl:h-[42px] flex justify-center items-center bg-white text-white border border-blue-500 hover:bg-blue-700 transition-all duration-500 ease-in-out">
+        📥
+    </button>
+
+{{-- download button end  --}}
 
     <a target="_blank"
         class="w-6 h-6 xl:w-10 xl:h-10  flex justify-center items-center group p-1 text-social-facebook ring-1 ring-social-facebook transition-all duration-500 ease-in-out hover:bg-social-facebook hover:text-white"

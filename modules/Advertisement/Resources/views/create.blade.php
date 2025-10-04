@@ -1,12 +1,15 @@
 <div class="row ps-4 pe-4">
 
-    <div class="col-md-12">
+     {{-- old code start  --}}
+    {{-- <div class="col-md-12">
         <div class="row">
             <label for="language_id" class="col-form-label col-sm-3 col-md-12 col-xl-3 fw-semibold">
                 {{ localize('language') }}
                 <span class="text-danger">*</span>
             </label>
+          
             <div class="col-sm-9 col-md-12 col-xl-9">
+                
                 <select name="language_id" id="language_id" class="form-control select-basic-single" required>
                     @foreach ($languages as $language)
                         <option value="{{ $language->id }}">
@@ -15,12 +18,43 @@
                     @endforeach
                 </select>
             </div>
-
+        
             @if ($errors->has('language_id'))
                 <div class="error text-danger m-2">{{ $errors->first('language_id') }}</div>
             @endif
         </div>
+    </div> --}}
+         {{-- old code end  --}}
+           
+         {{-- new code start  --}}
+
+         <div class="col-md-12">
+    <div class="row">
+        <label for="language_id" class="col-form-label col-sm-3 col-md-12 col-xl-3 fw-semibold">
+            {{ localize('language') }}
+            <span class="text-danger">*</span>
+        </label>
+
+        <div class="col-sm-9 col-md-12 col-xl-9">
+            <select name="language_id" id="language_id" class="form-control select-basic-single" required>
+                @foreach ($languages as $language)
+                    @if ($loop->index === 0 || $loop->index === 2)
+                        <option value="{{ $language->id }}">
+                            {{ $language->langname }}
+                        </option>
+                    @endif
+                @endforeach
+            </select>
+        </div>
+
+        @if ($errors->has('language_id'))
+            <div class="error text-danger m-2">{{ $errors->first('language_id') }}</div>
+        @endif
     </div>
+</div>
+
+         {{-- new code end  --}}
+
 
     <div class="col-md-12 mt-3">
         <div class="row">
