@@ -21,42 +21,28 @@
         <link href="{{ $font->source_url }}" rel="stylesheet">
     @endforeach
 
+    {{-- Google Font - Hind Siliguri --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        
+       {{-- Laravel Vite - CSS File --}}
+       {{-- {{ module_vite('build-news', 'Resources/assets/sass/app.scss') }} --}}
+
+        <style>
+            /* Apply Hind Siliguri to entire body */
+            body {
+                font-family: 'Hind Siliguri', Arial, sans-serif !important;
+            }
+        </style>
+
+
+
+
+
     {{-- Set CSS Variables --}}
-    <style>
-        :root {
-            @if ($principalFont)
-                --font-principal: {!! $principalFont->font_family !!};
-            @endif
-
-            @if ($alternateFont)
-                --font-alternate: {!! $alternateFont->font_family !!};
-            @endif
-
-            @if ($supplementaryFont)
-                --font-supplementary: {!! $supplementaryFont->font_family !!};
-            @endif
-        }
-
-        body {
-            font-family: var(--font-principal) !important;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        a {
-            font-family: var(--font-alternate) !important;
-        }
-
-        p {
-            font-family: var(--font-supplementary) !important;
-        }
-
-        .line-height-25 {
-            line-height: 2.5rem !important;
-        }
-    </style>
+    
 
     <!-- Tailwind css -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])

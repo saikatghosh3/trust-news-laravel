@@ -6,11 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Module News</title>
         <link rel="shortcut icon" href="\assets\favicon.png" type="image/x-icon">
-
-        
-       {{-- Laravel Vite - CSS File --}}
-       {{-- {{ module_vite('build-news', 'Resources/assets/sass/app.scss') }} --}}
-
+         
     </head>
     <body>
     
