@@ -2,6 +2,8 @@
 <section
     class="bg-white dark:bg-neutral-950 shadow-md top_header  transition-all duration-500 z-20 ease-in dark:shadow-white/10 fixed left-0 top-0 w-full xl:relative">
     <div class="container mx-auto py-2 flex justify-between items-center">
+
+        
         <!-- Left section -->
 
         <button onclick="openSidebar()" type="button"
@@ -28,6 +30,7 @@
                     </defs>
                 </svg>
                 <span class="text-sm">{{ $formattedDate }}</span>
+               
             </div>
         </section>
         {{-- Mobile Brand Logo  --}}
@@ -46,6 +49,7 @@
 
       <div class="xl:hidden">
     <!-- Dark mode logo -->
+    
     <a class="hidden dark:block w-32 h-12 flex_center" href="{{ __url('/') }}">
         <img src="{{ app_setting()->footer_logo }}" alt="Brand logo dark" class="max-h-full object-contain" />
     </a>
@@ -94,6 +98,7 @@
             </button>
 
             <!-- Multi-language Start -->
+            {{-- fully working code start --}}
             <div class="{{ $languages->count() > 1 ? '':'hidden' }}">
                 <div class="hidden xl:block relative text-left">
                     <button type="button" id="lang-toggle"
@@ -117,6 +122,9 @@
                 </div>
             </div>
             <!-- Multi-language End -->
+             {{-- fully working code end  --}}
+
+             
 
            <!-- Search Button -->
             <div class="xl:hidden">
@@ -247,6 +255,8 @@
                     </div>
                 </div>
             </div>
+           
         </section>
     </div>
+   
 </section>

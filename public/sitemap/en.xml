@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://trust.test</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2025-10-12</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>
@@ -73,16 +73,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://trust.test/category/Terms-and-Conditions/</loc>
-    <lastmod>2025-09-02</lastmod>
+    <loc>http://trust.test/category/Editorial-Office/</loc>
+    <lastmod>2025-10-08</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://trust.test/category/about/</loc>
-    <lastmod>2025-09-02</lastmod>
+    <loc>http://trust.test/category/Editorial-board/</loc>
+    <lastmod>2025-10-08</lastmod>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://trust.test/israelis-praise-trump-at-huge-rally-ahead-of-expected-hostage-release-by-hamas-in-gaza/</loc>
+    <lastmod>2025-10-12</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>http://trust.test/this-is-new-headline/</loc>
@@ -92,7 +98,7 @@
   </url>
   <url>
     <loc>http://trust.test/football-legend-philipp-lahms-insider-guide-to-munich/</loc>
-    <lastmod>2025-09-22</lastmod>
+    <lastmod>2025-10-08</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -104,13 +110,13 @@
   </url>
   <url>
     <loc>http://trust.test/i-spent-8000-to-get-back-to-us-after-fears-over-trump-visa-deadline/</loc>
-    <lastmod>2025-09-22</lastmod>
+    <lastmod>2025-10-08</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>http://trust.test/southkoreawoulddealtofreezenuclearprogramme/</loc>
-    <lastmod>2025-09-22</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -122,7 +128,7 @@
   </url>
   <url>
     <loc>http://trust.test/starmer-set-to-announce-uk-recognition-of-palestinian-state-on-sunday/</loc>
-    <lastmod>2025-09-22</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -164,7 +170,7 @@
   </url>
   <url>
     <loc>http://trust.test/technologynews/</loc>
-    <lastmod>2025-09-20</lastmod>
+    <lastmod>2025-10-08</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -176,13 +182,13 @@
   </url>
   <url>
     <loc>http://trust.test/thisiscustomurl/</loc>
-    <lastmod>2025-09-22</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>http://trust.test/customurl/</loc>
-    <lastmod>2025-09-22</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -194,7 +200,7 @@
   </url>
   <url>
     <loc>http://trust.test/this-is-custom-url/</loc>
-    <lastmod>2025-09-22</lastmod>
+    <lastmod>2025-10-06</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -206,7 +212,7 @@
   </url>
   <url>
     <loc>http://trust.test/thisisanotherenvironmentalnews/</loc>
-    <lastmod>2025-09-22</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -236,7 +242,7 @@
   </url>
   <url>
     <loc>http://trust.test/technology/</loc>
-    <lastmod>2025-09-22</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>
@@ -272,7 +278,7 @@
   </url>
   <url>
     <loc>http://trust.test/testingheadline/</loc>
-    <lastmod>2025-09-20</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>

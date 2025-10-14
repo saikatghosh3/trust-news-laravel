@@ -42,75 +42,86 @@ class PhotoLibraryService
      * @throws Exception
      */
     public function create(array $attributes): ?PhotoLibrary
-    {
-        $uploadDisk = 'local'; // আমরা public folder ব্যবহার করব
+{
+    $uploadDisk = 'local';
 
-        try {
-            DB::beginTransaction();
+    try {
+        DB::beginTransaction();
 
-            $thumbImgPath  = null;
-            $largeImgPath  = null;
-            $imageFilename = null;
-            $imageBaseUrl  = null;
+        $thumbImgPath  = null;
+        $largeImgPath  = null;
+        $imageFilename = null;
+        $imageBaseUrl  = null;
 
-            if (!empty($attributes['image'])) {
-                $imagePath = public_path($attributes['image']); // public path থেকে file access
-                $imageFilename = basename($attributes['image']);
+        // Use cropped images if available, otherwise process the original
+        if (!empty($attributes['cropped_thumb_path'])) {
+            $thumbImgPath = $attributes['cropped_thumb_path'];
+        }
 
-                // thumb size
+        if (!empty($attributes['cropped_large_path'])) {
+            $largeImgPath = $attributes['cropped_large_path'];
+        }
+
+        // Handle original image if no cropped versions provided
+        if (!empty($attributes['image'])) {
+            $imagePath = public_path($attributes['image']);
+            $imageFilename = basename($attributes['image']);
+
+            // Only create thumb/large if cropped versions weren't provided
+            if (empty($thumbImgPath)) {
                 $thumbSize = [
                     'width' => $attributes['thumb_width'] ?? 438,
                     'height' => $attributes['thumb_height'] ?? 240,
                 ];
 
-                // large size
+                $thumbImgPath = 'uploads/photo-library/thumb_' . $imageFilename;
+                \Intervention\Image\Facades\Image::make($imagePath)
+                    ->resize($thumbSize['width'], $thumbSize['height'])
+                    ->save(public_path($thumbImgPath));
+            }
+
+            if (empty($largeImgPath)) {
                 $largeSize = [
                     'width' => $attributes['large_width'] ?? 1067,
                     'height' => $attributes['large_height'] ?? 585,
                 ];
 
-                // thumb image
-                $thumbImgPath = 'uploads/photo-library/thumb_' . $imageFilename;
-                \Intervention\Image\Facades\Image::make($imagePath)
-                    ->resize($thumbSize['width'], $thumbSize['height'])
-                    ->save(public_path($thumbImgPath));
-
-                // large image
                 $largeImgPath = 'uploads/photo-library/large_' . $imageFilename;
                 \Intervention\Image\Facades\Image::make($imagePath)
                     ->resize($largeSize['width'], $largeSize['height'])
                     ->save(public_path($largeImgPath));
-
-                $imageBaseUrl = asset($attributes['image']); // original image url
             }
 
-            $insertData = [
-                'disk'              => $uploadDisk,
-                'image_base_url'    => $imageBaseUrl,
-                'actual_image_name' => $imageFilename,
-                'picture_name'      => $imageFilename,
-                'thumb_image'       => $thumbImgPath,
-                'large_image'       => $largeImgPath,
-                'title'             => $attributes['caption'] ?? null,
-                'reference'         => $attributes['reference'] ?? null,
-                'time_stamp'        => time(),
-                'status'            => 1,
-            ];
-
-            $photoLibrary = PhotoLibrary::create($insertData);
-
-            DB::commit();
-
-            return $photoLibrary;
-        } catch (\Exception $exception) {
-            DB::rollBack();
-            throw new \HttpResponseException(response()->json([
-                'success' => false,
-                'message' => localize("photo_library_create_error"),
-                'title'   => localize("photo_library"),
-            ], 422));
+            $imageBaseUrl = asset($attributes['image']);
         }
+
+        $insertData = [
+            'disk'              => $uploadDisk,
+            'image_base_url'    => $imageBaseUrl,
+            'actual_image_name' => $imageFilename,
+            'picture_name'      => $imageFilename,
+            'thumb_image'       => $thumbImgPath,
+            'large_image'       => $largeImgPath,
+            'title'             => $attributes['caption'] ?? null,
+            'reference'         => $attributes['reference'] ?? null,
+            'time_stamp'        => time(),
+            'status'            => 1,
+        ];
+
+        $photoLibrary = PhotoLibrary::create($insertData);
+
+        DB::commit();
+
+        return $photoLibrary;
+    } catch (\Exception $exception) {
+        DB::rollBack();
+        throw new \HttpResponseException(response()->json([
+            'success' => false,
+            'message' => localize("photo_library_create_error"),
+            'title'   => localize("photo_library"),
+        ], 422));
     }
+}
 
 
     /**

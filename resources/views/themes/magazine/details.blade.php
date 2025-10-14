@@ -94,9 +94,232 @@
                 
                     @include ('themes.magazine.components.common.social-section')
 
+                {{-- testing text to speech start  --}}
+                
+      <!-- Text to Speech Button code  -->
+     
+
+
+{{-- old script and  was working for english start  --}}
+
+<script>
+ let speechSynthesisObj = window.speechSynthesis;
+let currentUtterance = null;
+let voices = [];
+
+
+function loadVoices() {
+    voices = speechSynthesisObj.getVoices();
+    console.log('Available voices:', voices.map(v => `${v.name} (${v.lang})`));
+}
+
+loadVoices();
+
+
+if (speechSynthesisObj.onvoiceschanged !== undefined) {
+    speechSynthesisObj.onvoiceschanged = loadVoices;
+}
+
+function playSpeech() {
+    const title = document.querySelector('h1').innerText;
+    const content = document.getElementById('news-content').innerText;
+
+   
+    if (speechSynthesisObj.speaking) {
+        stopSpeech();
+        return;
+    }
+
+    
+    const textToSpeak = `${title}. ${content}`;
+
+    
+    const banglaPattern = /[\u0980-\u09FF]/;
+    const isBangla = banglaPattern.test(textToSpeak);
+
+    
+    currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
+    
+    if (isBangla) {
+   
+        const banglaVoice = voices.find(voice => 
+            voice.lang === 'bn-BD' || 
+            voice.lang === 'bn-IN' || 
+            voice.lang.startsWith('bn')
+        );
+        
+        if (banglaVoice) {
+            console.log('Using Bangla voice:', banglaVoice.name);
+            currentUtterance.voice = banglaVoice;
+            currentUtterance.lang = 'bn-BD';
+            currentUtterance.rate = 0.9;
+        } else {
+            console.warn('No Bangla voice found, using default');
+            currentUtterance.lang = 'bn-BD';
+            currentUtterance.rate = 0.9;
+        }
+    } else {
+        
+        const englishVoice = voices.find(voice => 
+            voice.lang.startsWith('en')
+        );
+        
+        if (englishVoice) {
+            currentUtterance.voice = englishVoice;
+        }
+        currentUtterance.lang = 'en-US';
+        currentUtterance.rate = 1;
+    }
+
+    currentUtterance.pitch = 1;
+
+    
+    document.getElementById('ttsButton').classList.add('hidden');
+    document.getElementById('stopTtsButton').classList.remove('hidden');
+
+   
+    currentUtterance.onend = () => {
+        document.getElementById('ttsButton').classList.remove('hidden');
+        document.getElementById('stopTtsButton').classList.add('hidden');
+    };
+
+    
+    currentUtterance.onerror = (event) => {
+        console.error('Speech synthesis error:', event);
+        document.getElementById('ttsButton').classList.remove('hidden');
+        document.getElementById('stopTtsButton').classList.add('hidden');
+    };
+
+ 
+    speechSynthesisObj.speak(currentUtterance);
+}
+
+function stopSpeech() {
+    if (speechSynthesisObj.speaking) {
+        speechSynthesisObj.cancel();
+    }
+    document.getElementById('ttsButton').classList.remove('hidden');
+    document.getElementById('stopTtsButton').classList.add('hidden');
+}
+</script>
+{{-- old script and  was working  only for english end --}}
+
+
+{{-- new  script start  with api. working both for bangla and english --}}
+{{-- <script src="https://code.responsivevoice.org/responsivevoice.js?key=Nwnl5BBC"></script> 
+<script>
+let speechSynthesisObj = window.speechSynthesis;
+let currentUtterance = null;
+let voices = [];
+
+function loadVoices() {
+    voices = speechSynthesisObj.getVoices();
+    console.log('Available voices:', voices.map(v => `${v.name} (${v.lang})`));
+}
+
+loadVoices();
+
+if (speechSynthesisObj.onvoiceschanged !== undefined) {
+    speechSynthesisObj.onvoiceschanged = loadVoices;
+}
+
+function playSpeech() {
+    const title = document.querySelector('h1').innerText;
+    const content = document.getElementById('news-content').innerText;
+
+    if (speechSynthesisObj.speaking || responsiveVoice.isPlaying()) {
+        stopSpeech();
+        return;
+    }
+
+    const textToSpeak = `${title}. ${content}`;
+    const banglaPattern = /[\u0980-\u09FF]/;
+    const isBangla = banglaPattern.test(textToSpeak);
+
+    
+    const banglaVoice = voices.find(voice => 
+        voice.lang === 'bn-BD' || 
+        voice.lang === 'bn-IN' || 
+        voice.lang.startsWith('bn')
+    );
+
+    if (isBangla && !banglaVoice) {
+        
+        console.log('Using ResponsiveVoice for Bangla');
+        
+        document.getElementById('ttsButton').classList.add('hidden');
+        document.getElementById('stopTtsButton').classList.remove('hidden');
+        
+        responsiveVoice.speak(textToSpeak, 'Bangla Bangladesh Female', {
+            rate: 0.9,
+            pitch: 1,
+            onstart: () => {
+                console.log('Speech started');
+            },
+            onend: () => {
+                console.log('Speech ended');
+                document.getElementById('ttsButton').classList.remove('hidden');
+                document.getElementById('stopTtsButton').classList.add('hidden');
+            },
+            onerror: (error) => {
+                console.error('Speech error:', error);
+                document.getElementById('ttsButton').classList.remove('hidden');
+                document.getElementById('stopTtsButton').classList.add('hidden');
+            }
+        });
+        return;
+    }
+
+   
+    currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
+
+    if (isBangla && banglaVoice) {
+        currentUtterance.voice = banglaVoice;
+        currentUtterance.lang = 'bn-BD';
+        currentUtterance.rate = 0.9;
+    } else {
+        const englishVoice = voices.find(v => v.lang.startsWith('en'));
+        if (englishVoice) currentUtterance.voice = englishVoice;
+        currentUtterance.lang = 'en-US';
+        currentUtterance.rate = 1;
+    }
+
+    currentUtterance.pitch = 1;
+
+    document.getElementById('ttsButton').classList.add('hidden');
+    document.getElementById('stopTtsButton').classList.remove('hidden');
+
+    currentUtterance.onend = () => {
+        document.getElementById('ttsButton').classList.remove('hidden');
+        document.getElementById('stopTtsButton').classList.add('hidden');
+    };
+
+    currentUtterance.onerror = () => {
+        console.error('Speech synthesis error');
+        document.getElementById('ttsButton').classList.remove('hidden');
+        document.getElementById('stopTtsButton').classList.add('hidden');
+    };
+
+    speechSynthesisObj.speak(currentUtterance);
+}
+
+function stopSpeech() {
+    if (speechSynthesisObj.speaking) {
+        speechSynthesisObj.cancel();
+    }
+    if (responsiveVoice.isPlaying()) {
+        responsiveVoice.cancel();
+    }
+    document.getElementById('ttsButton').classList.remove('hidden');
+    document.getElementById('stopTtsButton').classList.add('hidden');
+}
+</script> --}}
+
+{{-- new  script experiment end --}}
+
                     {{-- ***************working  code start for print ******************* --}}
        
-                     <script>
+ <script>
 function printNews() {
     const title = document.querySelector('h1').innerText;
 
@@ -248,7 +471,7 @@ img {
 function downloadSocialCard() {
     
     const title = document.querySelector('h1').innerText;
-    const newsId = "{{ $newsDetail->id }}"; // GET ID FROM DATABASE
+    const newsId = "{{ $newsDetail->id }}"; 
     
     // Getting the image
     let imageUrl = '';
@@ -272,72 +495,146 @@ function downloadSocialCard() {
     cardContainer.style.top = '0';
     document.body.appendChild(cardContainer);
     
-    // ... rest of your card HTML code stays the same ...
+   
 // new function end 
     
     // the card HTML
-  cardContainer.innerHTML = `
-    <div id="social-card" style="max-width: 800px; width: 100%;  font-family:'Hind Siliguri', Arial, sans-serif; margin: 0 auto;">
-        <!-- Image Section with Logo Overlay (Black BORDER) -->
-        <div style="position: relative; border: 8px solid #000; overflow: hidden;">
-            <img src="${imageUrl}" style="width: 100%; height: auto; min-height: 250px; max-height: 600px; object-fit: cover; display: block;" crossorigin="anonymous">
+//   cardContainer.innerHTML = `
+//     <div id="social-card" style="max-width: 800px; width: 100%;  font-family:'Hind Siliguri', Arial, sans-serif; margin: 0 auto;">
+//         <!-- Image Section with Logo Overlay (Black BORDER) -->
+//         <div style="position: relative; border: 8px solid #000; overflow: hidden;">
+//             <img src="${imageUrl}" style="width: 100%; height: auto; min-height: 250px; max-height: 600px; object-fit: cover; display: block;" crossorigin="anonymous">
             
-            <!-- Logo Overlay (Top Right) -->
-            <div style="position: absolute; top: 10px; right: 10px; z-index: 10;  padding: 8px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
-                <img src="${logoUrl}" style="width: clamp(80px, 15vw, 150px); height: auto; display: block;" crossorigin="anonymous">
-            </div>
-        </div>
+//             <!-- Logo Overlay (Top Right) -->
+//             <div style="position: absolute; top: 10px; right: 10px; z-index: 10;  padding: 8px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+//                 <img src="${logoUrl}" style="width: clamp(80px, 15vw, 150px); height: auto; display: block;" crossorigin="anonymous">
+//             </div>
+//         </div>
         
-   <!-- Headline + Comment Section  -->
-<div style="background: #003366; padding: clamp(15px, 4vw, 30px) clamp(15px, 4vw, 30px) clamp(15px, 3vw, 25px); color: white; text-align: center;">
-    <!-- Headline -->
-    <h1 style="font-size: clamp(18px, 4vw, 32px); font-weight: bold; margin: 0 0 clamp(15px, 3vw, 20px) 0; line-height: 1.4; word-wrap: break-word;">
-        ${title.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
-    </h1>
+//    <!-- Headline + Comment Section  -->
+// <div style="background: #003366; padding: clamp(15px, 4vw, 30px) clamp(15px, 4vw, 30px) clamp(15px, 3vw, 25px); color: white; text-align: center;">
+//     <!-- Headline -->
+//     <h1 style="font-size: clamp(18px, 4vw, 32px); font-weight: bold; margin: 0 0 clamp(15px, 3vw, 20px) 0; line-height: 1.4; word-wrap: break-word;">
+//         ${title.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+//     </h1>
     
-    <!-- Comment Text -->
-    <p style="font-size: clamp(14px, 2.5vw, 20px); margin: 0; font-weight: 500;">
-        >> বিস্তারিত সংবাদ কমেন্ট সেকশনে দেখুন << 
-    </p>
-</div>
+//     <!-- Comment Text -->
+//     <p style="font-size: clamp(14px, 2.5vw, 20px); margin: 0; font-weight: 500;">
+//         >> বিস্তারিত সংবাদ কমেন্ট সেকশনে দেখুন << 
+//     </p>
+// </div>
 
 
-<!-- Social Media Links (BLUE BACKGROUND) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+// <!-- Social Media Links (BLUE BACKGROUND) -->
+// <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+// <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
-<div style="background: #003366; padding: clamp(15px, 3vw, 25px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(15px, 3vw, 40px); margin-top: -1rem;">
+// <div style="background: #003366; padding: clamp(15px, 3vw, 25px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(15px, 3vw, 40px); margin-top: -1rem;">
 
-    <!-- Facebook -->
-    <div style="display: flex; align-items: center; gap: 10px; color: white;">
-        <i class="fab fa-facebook-f" style="font-size: clamp(18px, 3vw, 26px);"></i>
-        <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">/trustnewspressbd</span>
+//     <!-- Facebook -->
+//     <div style="display: flex; align-items: center; gap: 10px; color: white;">
+//         <i class="fab fa-facebook-f" style="font-size: clamp(18px, 3vw, 26px);"></i>
+//         <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">/trustnewspressbd</span>
+//     </div>
+
+//     <!-- YouTube -->
+//     <div style="display: flex; align-items: center; gap: 10px; color: white;">
+//         <i class="fab fa-youtube" style="font-size: clamp(18px, 3vw, 26px);"></i>
+//         <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">/@trustnews-bd</span>
+//     </div>
+
+//     <!-- Website -->
+//     <div style="display: flex; align-items: center; gap: 10px; color: white;">
+//         <i class="fa-solid fa-globe" style="font-size: clamp(18px, 3vw, 26px);"></i>
+//         <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">trustnews.press</span>
+//     </div>
+// </div>
+
+// <!-- Responsive Fix -->
+// <style>
+//         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+//         #social-card {
+//           font-family: 'Hind Siliguri', sans-serif !important;
+//         }
+//       </style>
+
+// `;
+
+// testing code start for any size image 
+cardContainer.innerHTML = `
+  <div id="social-card" 
+    style="max-width: 800px; width: 100%; font-family:'Hind Siliguri', Arial, sans-serif; margin: 0 auto; display: flex; flex-direction: column;">
+
+    <!-- Image Section with Logo Overlay (Black BORDER) -->
+    <div style="position: relative; border: 8px solid #000; overflow: hidden; flex-shrink: 0;">
+        <img src="${imageUrl}" 
+             style="width: 100%; height: auto; max-height: 500px; object-fit: contain; display: block;" 
+             crossorigin="anonymous">
+
+        <!-- Logo Overlay (Top Right) -->
+        <div style="position: absolute; top: 10px; right: 10px; z-index: 10; padding: 8px; border-radius: 8px; ">
+            <img src="${logoUrl}" 
+                 style="width: clamp(80px, 15vw, 150px); height: auto; display: block;" 
+                 crossorigin="anonymous">
+        </div>
+    </div>
+    
+    <!-- Headline + Comment Section -->
+    <div style="background: #003366; padding: clamp(15px, 4vw, 30px) clamp(15px, 4vw, 30px) clamp(15px, 3vw, 25px); color: white; text-align: center; flex-shrink: 0;">
+       <h1 style="font-size: clamp(16px, 3vw, 26px); font-weight: bold; margin: 0 0 clamp(15px, 3vw, 20px) 0; line-height: 1.4; word-wrap: break-word;">
+    
+            ${title
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .split(' ')
+        .slice(0, 7)
+        .join(' ')}${title.split(' ').length > 7 ? '…' : ''}
+        </h1>
+        <p style="font-size: clamp(14px, 2.5vw, 20px); margin: 0; font-weight: 500; white-space: nowrap;">
+            &gt;&gt; বিস্তারিত সংবাদ কমেন্ট সেকশনে দেখুন &lt;&lt;
+        </p>
     </div>
 
-    <!-- YouTube -->
-    <div style="display: flex; align-items: center; gap: 10px; color: white;">
-        <i class="fab fa-youtube" style="font-size: clamp(18px, 3vw, 26px);"></i>
-        <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">/@trustnews-bd</span>
+    <!-- Social Media Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <div style="background: #003366; padding: clamp(15px, 3vw, 25px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(15px, 3vw, 40px); flex-shrink: 0;">
+
+        <!-- Facebook -->
+        <div style="display: flex; align-items: center; gap: 10px; color: white;">
+            <i class="fab fa-facebook-f" style="font-size: clamp(18px, 3vw, 26px);"></i>
+            <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">/trustnewspressbd</span>
+        </div>
+
+        <!-- YouTube -->
+        <div style="display: flex; align-items: center; gap: 10px; color: white;">
+            <i class="fab fa-youtube" style="font-size: clamp(18px, 3vw, 26px);"></i>
+            <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500; px-1">/@trustnews-bd</span>
+        </div>
+
+        <!-- Website -->
+        <div style="display: flex; align-items: center; gap: 10px; color: white;">
+            <i class="fa-solid fa-globe" style="font-size: clamp(18px, 3vw, 26px);"></i>
+            <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">trustnews.press</span>
+        </div>
     </div>
 
-    <!-- Website -->
-    <div style="display: flex; align-items: center; gap: 10px; color: white;">
-        <i class="fa-solid fa-globe" style="font-size: clamp(18px, 3vw, 26px);"></i>
-        <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">trustnews.press</span>
-    </div>
-</div>
-
-<!-- Responsive Fix -->
-<style>
+    <!-- Responsive Fix -->
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
-
         #social-card {
           font-family: 'Hind Siliguri', sans-serif !important;
         }
-      </style>
-
+    </style>
+  </div>
 `;
+
+// testing code end  for any size image.
+
+
+
     
 
     // Wait for images to load
@@ -384,7 +681,7 @@ function downloadSocialCard() {
             const a = document.createElement('a');
             a.href = url;
             
-            // USE ID FOR FILENAME
+            
             a.download = `${newsId}.png`;
 
             document.body.appendChild(a);
@@ -442,7 +739,7 @@ function downloadSocialCard() {
     {{-- download button code  end  --}}
 
             <!-- News Details -->
-            <div class="dark:text-white mt-6">,
+            <div class="dark:text-white mt-6">
                 
     {{-- @php
     $raw = $newsDetail->photoLibrary->large_image ?? null; // e.g. "large_xxx.webp" or "uploads/photo-library/large_xxx.webp"
@@ -495,20 +792,19 @@ function downloadSocialCard() {
 
 
 
-{{-- full code testing  --}}
+{{-- old woking  code  for news details image  original********************************************** --}}
 
-
-@php
+         
+  {{-- @php
     $defaultImage = asset('assets/news-details-view.png');
     $largeImage   = $newsDetail->photoLibrary->large_image ?? null;
     
 
     if ($largeImage) {
-        // normalize without forcing prefix
+        
         $imagePath = ltrim(str_replace(['public/', 'storage/'], '', $largeImage), '/');
 
-        // if the path already starts with 'uploads/photo-library', leave it
-        // otherwise prefix it
+       
         if (!\Illuminate\Support\Str::startsWith($imagePath, 'uploads/photo-library')) {
             $imagePath = 'uploads/photo-library/' . $imagePath;
         }
@@ -525,17 +821,70 @@ function downloadSocialCard() {
     <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400 italic text-center">
         {{ $newsDetail->image_title }}
     </figcaption>
+</figure>  --}}
+
+
+ {{-- old working code for news details image end  original end   --}}
+
+ {{-- new code testing one start  --}}
+@php
+    $defaultImage = asset('assets/news-details-view.png');
+    $largeImage   = $newsDetail->photoLibrary->large_image ?? null;
+
+    if ($largeImage) {
+        $imagePath = ltrim(str_replace(['public/', 'storage/'], '', $largeImage), '/');
+        if (!\Illuminate\Support\Str::startsWith($imagePath, 'uploads/photo-library')) {
+            $imagePath = 'uploads/photo-library/' . $imagePath;
+        }
+        $src = asset($imagePath);
+    } else {
+        $src = $defaultImage;
+    }
+
+    $headline = $newsDetail->title ?? '';
+    $headlineWords = explode(' ', strip_tags($headline));
+    $shortHeadline = implode(' ', array_slice($headlineWords, 0, 6));
+    if (count($headlineWords) > 6) {
+        $shortHeadline .= '…';
+    }
+@endphp
+
+<figure class="mb-8 relative w-full max-h-[550px] overflow-hidden border-8 border-black bg-gray-200">
+ 
+    <div class="absolute inset-0 bg-yellow-100 opacity-20 z-0"></div>
+    
+    <img class="w-full h-auto max-h-[550px] object-contain block relative z-1" 
+         src="{{ $src }}" 
+         alt="{{ $newsDetail->image_alt ?? 'News Image' }}">
+
+   
+    <div class="absolute top-3 right-3 z-20">
+        <img src="{{ asset('assets/logo4.png') }}" 
+             alt="Logo" 
+             class="w-[100px] md:w-[140px] h-auto">
+    </div>
+
+
+    <div class="absolute bottom-0 left-0 w-full bg-blue-900 px-4 py-3 text-white text-center z-10">
+    <h1 class="text-lg md:text-2xl font-bold leading-snug">
+        {{ $shortHeadline }}
+    </h1>
+</div>
 </figure>
 
+<figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400 italic text-center">
+    {{ $newsDetail->image_title }}
+</figcaption>
 
+         {{-- new code testing one end  --}}
 
-
-{{-- end testing code  --}}
 
                 
 
-                <div id="news-content" class="text-base prose-content">
+                <div id="news-content" class="text-base prose-content" style="margin-top:1rem">
+                    
                     {!! $newsDetail->news ?? 'null' !!}
+                    
                 </div>
 
                 {{-- News Post Video Url --}}

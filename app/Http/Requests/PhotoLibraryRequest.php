@@ -23,19 +23,21 @@ class PhotoLibraryRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+    
     public function rules(): array
-    {
-
-        return [
-            'thumb_height' => ['required', 'integer'],
-            'thumb_width'  => ['required', 'integer'],
-            'large_height' => ['required', 'integer'],
-            'large_width'  => ['required', 'integer'],
-            'image'        => ['required', 'file', 'image', 'max:5120'],
-            'caption'      => ['nullable', 'string'],
-            'reference'    => ['nullable', 'string'],
-        ];
-    }
+{
+    return [
+        'thumb_height' => ['required', 'integer'],
+        'thumb_width'  => ['required', 'integer'],
+        'large_height' => ['required', 'integer'],
+        'large_width'  => ['required', 'integer'],
+        'image'        => ['required', 'file', 'image', 'max:5120'],
+        'cropped_thumb' => ['nullable', 'string'],
+        'cropped_large' => ['nullable', 'string'],
+        'caption'      => ['nullable', 'string'],
+        'reference'    => ['nullable', 'string'],
+    ];
+}
 
     public function prepareForValidation()
     {

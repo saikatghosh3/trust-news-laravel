@@ -19,6 +19,8 @@ class SetLanguage
         $lang = $request->route('lang') ?? $request->route('param');
 
         $defaultLang = Language::getDefault()->value;
+        // $defaultLang = 'bn';
+
         if ($lang === $defaultLang) {
             return redirect('/');
         }

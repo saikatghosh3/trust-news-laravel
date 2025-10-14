@@ -65,6 +65,7 @@
         </div>
 
         {{-- Multi-language Start --}}
+  
         @if ($languages->count() > 1)
             <div class="relative inline-block mt-6">
                 <button type="button" id="dropdownButton"

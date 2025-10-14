@@ -43,6 +43,7 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $data->langname }}</td>
+                                            
                                             <td>{{ $data->value }}</td>
                                             <td>
                                                 @if (app_setting()->language_id != $data->id)

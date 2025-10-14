@@ -134,7 +134,8 @@
                         <form action="{{ route('themes.updateActive') }}" method="POST">
                             @csrf
                             <input type="hidden" name="theme_id" value="{{ $theme->id }}">
-                            <button type="submit" class="btn btn-block btn-theme {{ $theme->is_active ? 'active' : '' }}">
+                            <button type="submit" class="btn btn-block btn-theme 
+                            {{ $theme->is_active ? 'active' : '' }}">
                                 <div class="image theme-img">
                                     <img src="{{ asset($theme->image_path) }}" alt="{{ $theme->name }}" class="img-responsive">
                                 </div>

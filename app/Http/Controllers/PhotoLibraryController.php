@@ -6,7 +6,7 @@ use App\DataTables\PhotoLibraryDataTable;
 use App\Http\Requests\PhotoLibraryRequest;
 use App\Services\PhotoLibraryService;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image; // import করতে ভুলোনা
+use Illuminate\Support\Facades\Storage;
 
 class PhotoLibraryController extends Controller
 {
@@ -43,28 +43,12 @@ class PhotoLibraryController extends Controller
 
     /**
      * Store photo library
-     *
-     * @param PhotoLibraryRequest $request
-     * @return void
      */
-    // public function store(PhotoLibraryRequest $request)
-    // {
-    //     $data         = $request->validated();
-    //     $photoLibrary = $this->photoLibraryService->create($data);
-
-    //     return response()->json([
-    //         'success' => true,
-    //         'message' => localize("photo_library_data_delete_successfully"),
-    //         'title'   => localize("photo_library"),
-    //         'data'    => $photoLibrary,
-    //     ]);
-
-    // }
-
     public function store(PhotoLibraryRequest $request)
     {
         $data = $request->validated();
 
+        // Handle original image upload
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $file = $request->file('image');
             $name = time() . '-photo.' . $file->getClientOriginalExtension();
@@ -72,9 +56,19 @@ class PhotoLibraryController extends Controller
             if (!is_dir($folderPath)) mkdir($folderPath, 0755, true);
 
             $file->move($folderPath, $name);
-
-            // just string path, no hashName()
             $data['image'] = 'uploads/photo-library/' . $name;
+        }
+
+        // Handle cropped thumb image (blob URL)
+        if (!empty($data['cropped_thumb'])) {
+            $thumbPath = $this->saveBlobImage($data['cropped_thumb'], 'thumb');
+            $data['cropped_thumb_path'] = $thumbPath;
+        }
+
+        // Handle cropped large image (blob URL)
+        if (!empty($data['cropped_large'])) {
+            $largePath = $this->saveBlobImage($data['cropped_large'], 'large');
+            $data['cropped_large_path'] = $largePath;
         }
 
         $photoLibrary = $this->photoLibraryService->create($data);
@@ -87,12 +81,39 @@ class PhotoLibraryController extends Controller
         ]);
     }
 
+    /**
+     * Save blob image from frontend cropping
+     */
+    private function saveBlobImage($blobUrl, $type)
+    {
+        try {
+            // Extract base64 data from blob URL
+            $imageData = file_get_contents($blobUrl);
+            
+            if ($imageData === false) {
+                throw new \Exception('Failed to get blob data');
+            }
 
+            // Generate filename
+            $filename = $type . '_' . time() . '.jpg';
+            $folderPath = public_path('uploads/photo-library');
+            
+            if (!is_dir($folderPath)) {
+                mkdir($folderPath, 0755, true);
+            }
 
-
-
-
-
+            $filePath = $folderPath . '/' . $filename;
+            
+            // Save the image
+            file_put_contents($filePath, $imageData);
+            
+            return 'uploads/photo-library/' . $filename;
+            
+        } catch (\Exception $e) {
+            \Log::error('Error saving blob image: ' . $e->getMessage());
+            return null;
+        }
+    }
 
     /**
      * Show the application dashboard.

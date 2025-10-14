@@ -10,13 +10,14 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h6 class="fs-17 fw-semi-bold mb-0">{{ localize('language_list') }}</h6>
+                                <h2>asdfasdf</h2>
                             </div>
                             <div class="text-end">
                                 <div class="actions">
 
                                     <a href="#" class="btn btn-success btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#addLanguage"><i
-                                            class="fa-sharp fa-solid fa-circle-plus"></i>&nbsp;Add Language</a>
+                                            class="fa-sharp fa-solid fa-circle-plus"></i>&nbsp;Add Languagesss</a>
                                     @include('localize::languageAdd')
                                 </div>
                             </div>
