@@ -103,7 +103,7 @@
     id="ttsButton" 
     class="w-6 h-6 xl:w-10 xl:h-10 flex justify-center items-center p-1 text-blue-600 ring-1 ring-blue-600 transition-all duration-500 ease-in-out hover:bg-blue-600 hover:text-white rounded-none">
     🔊
-</button>
+   </button>
 
 
     <!-- Stop Button -->

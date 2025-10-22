@@ -102,7 +102,7 @@
 
 {{-- old script and  was working for english start  --}}
 
-<script>
+{{-- <script>
  let speechSynthesisObj = window.speechSynthesis;
 let currentUtterance = null;
 let voices = [];
@@ -201,121 +201,208 @@ function stopSpeech() {
     document.getElementById('ttsButton').classList.remove('hidden');
     document.getElementById('stopTtsButton').classList.add('hidden');
 }
-</script>
+</script> --}}
+
 {{-- old script and  was working  only for english end --}}
 
 
+
 {{-- new  script start  with api. working both for bangla and english --}}
-{{-- <script src="https://code.responsivevoice.org/responsivevoice.js?key=Nwnl5BBC"></script> 
-<script>
+ {{-- <script src="https://code.responsivevoice.org/responsivevoice.js?key=Nwnl5BBC"></script> 
+ <script>
 let speechSynthesisObj = window.speechSynthesis;
 let currentUtterance = null;
 let voices = [];
+let isCurrentlySpeaking = false;
+
 
 function loadVoices() {
     voices = speechSynthesisObj.getVoices();
-    console.log('Available voices:', voices.map(v => `${v.name} (${v.lang})`));
 }
-
-loadVoices();
-
 if (speechSynthesisObj.onvoiceschanged !== undefined) {
     speechSynthesisObj.onvoiceschanged = loadVoices;
 }
+loadVoices();
 
 function playSpeech() {
-    const title = document.querySelector('h1').innerText;
-    const content = document.getElementById('news-content').innerText;
-
-    if (speechSynthesisObj.speaking || responsiveVoice.isPlaying()) {
-        stopSpeech();
-        return;
-    }
-
-    const textToSpeak = `${title}. ${content}`;
-    const banglaPattern = /[\u0980-\u09FF]/;
-    const isBangla = banglaPattern.test(textToSpeak);
-
     
-    const banglaVoice = voices.find(voice => 
-        voice.lang === 'bn-BD' || 
-        voice.lang === 'bn-IN' || 
-        voice.lang.startsWith('bn')
-    );
+    const title = document.querySelector('h1')?.innerText || '';
+    const mainContent = document.querySelector('#news-content')?.innerText || '';
+    const textToSpeak = `${title}. ${mainContent}`.trim();
 
-    if (isBangla && !banglaVoice) {
-        
-        console.log('Using ResponsiveVoice for Bangla');
-        
-        document.getElementById('ttsButton').classList.add('hidden');
-        document.getElementById('stopTtsButton').classList.remove('hidden');
-        
-        responsiveVoice.speak(textToSpeak, 'Bangla Bangladesh Female', {
-            rate: 0.9,
-            pitch: 1,
-            onstart: () => {
-                console.log('Speech started');
-            },
-            onend: () => {
-                console.log('Speech ended');
-                document.getElementById('ttsButton').classList.remove('hidden');
-                document.getElementById('stopTtsButton').classList.add('hidden');
-            },
-            onerror: (error) => {
-                console.error('Speech error:', error);
-                document.getElementById('ttsButton').classList.remove('hidden');
-                document.getElementById('stopTtsButton').classList.add('hidden');
-            }
-        });
+    if (!textToSpeak) {
+        console.warn("No content to read.");
         return;
     }
 
    
-    currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
-
-    if (isBangla && banglaVoice) {
-        currentUtterance.voice = banglaVoice;
-        currentUtterance.lang = 'bn-BD';
-        currentUtterance.rate = 0.9;
-    } else {
-        const englishVoice = voices.find(v => v.lang.startsWith('en'));
-        if (englishVoice) currentUtterance.voice = englishVoice;
-        currentUtterance.lang = 'en-US';
-        currentUtterance.rate = 1;
+    if (isCurrentlySpeaking) {
+        stopSpeech();
+        return;
     }
 
-    currentUtterance.pitch = 1;
+    
+    const banglaPattern = /[\u0980-\u09FF]/;
+    const isBangla = banglaPattern.test(textToSpeak);
 
     document.getElementById('ttsButton').classList.add('hidden');
     document.getElementById('stopTtsButton').classList.remove('hidden');
 
-    currentUtterance.onend = () => {
-        document.getElementById('ttsButton').classList.remove('hidden');
-        document.getElementById('stopTtsButton').classList.add('hidden');
-    };
+    isCurrentlySpeaking = true;
 
-    currentUtterance.onerror = () => {
-        console.error('Speech synthesis error');
-        document.getElementById('ttsButton').classList.remove('hidden');
-        document.getElementById('stopTtsButton').classList.add('hidden');
-    };
+    
+    if (isBangla) {
+        const banglaVoice = voices.find(v => v.lang.startsWith('bn'));
+        if (banglaVoice) {
+            currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
+            currentUtterance.voice = banglaVoice;
+            currentUtterance.lang = 'bn-BD';
+            currentUtterance.rate = 0.9;
+            currentUtterance.pitch = 1;
+            currentUtterance.onend = handleSpeechEnd;
+            currentUtterance.onerror = handleSpeechEnd;
+            speechSynthesisObj.speak(currentUtterance);
+        } else {
+          
+            responsiveVoice.speak(textToSpeak, "Bangla Bangladesh Female", {
+                rate: 0.9,
+                pitch: 1,
+                onend: handleSpeechEnd,
+                onerror: handleSpeechEnd
+            });
+        }
+        return;
+    }
 
+    
+    const englishVoice = voices.find(v => v.lang.startsWith('en')) || null;
+    currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
+    if (englishVoice) currentUtterance.voice = englishVoice;
+    currentUtterance.lang = 'en-US';
+    currentUtterance.rate = 1;
+    currentUtterance.pitch = 1;
+    currentUtterance.onend = handleSpeechEnd;
+    currentUtterance.onerror = handleSpeechEnd;
     speechSynthesisObj.speak(currentUtterance);
 }
 
 function stopSpeech() {
-    if (speechSynthesisObj.speaking) {
-        speechSynthesisObj.cancel();
-    }
-    if (responsiveVoice.isPlaying()) {
-        responsiveVoice.cancel();
-    }
+    if (speechSynthesisObj.speaking) speechSynthesisObj.cancel();
+    if (window.responsiveVoice && responsiveVoice.isPlaying()) responsiveVoice.cancel();
+    handleSpeechEnd();
+}
+
+
+function handleSpeechEnd() {
+    isCurrentlySpeaking = false;
     document.getElementById('ttsButton').classList.remove('hidden');
     document.getElementById('stopTtsButton').classList.add('hidden');
 }
 </script> --}}
 
-{{-- new  script experiment end --}}
+
+
+{{-- if cursor moved fast, speech only plays on explicit button click start --}}
+
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=Nwnl5BBC"></script> 
+<script>
+let speechSynthesisObj = window.speechSynthesis;
+let currentUtterance = null;
+let voices = [];
+let isCurrentlySpeaking = false;
+
+function loadVoices() {
+    voices = speechSynthesisObj.getVoices();
+}
+if (speechSynthesisObj.onvoiceschanged !== undefined) {
+    speechSynthesisObj.onvoiceschanged = loadVoices;
+}
+loadVoices();
+
+function playSpeech() {
+    // Get content from the MAIN article only (not from other news items)
+    const title = document.querySelector('h1')?.innerText || '';
+    const mainContent = document.querySelector('#news-content')?.innerText || '';
+    const textToSpeak = `${title}. ${mainContent}`.trim();
+
+    if (!textToSpeak) {
+        console.warn("No content to read.");
+        return;
+    }
+
+    // If already speaking, stop it
+    if (isCurrentlySpeaking) {
+        stopSpeech();
+        return;
+    }
+
+    const banglaPattern = /[\u0980-\u09FF]/;
+    const isBangla = banglaPattern.test(textToSpeak);
+
+    document.getElementById('ttsButton')?.classList.add('hidden');
+    document.getElementById('stopTtsButton')?.classList.remove('hidden');
+
+    isCurrentlySpeaking = true;
+
+    if (isBangla) {
+        const banglaVoice = voices.find(v => v.lang.startsWith('bn'));
+        if (banglaVoice) {
+            currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
+            currentUtterance.voice = banglaVoice;
+            currentUtterance.lang = 'bn-BD';
+            currentUtterance.rate = 0.9;
+            currentUtterance.pitch = 1;
+            currentUtterance.onend = handleSpeechEnd;
+            currentUtterance.onerror = handleSpeechEnd;
+            speechSynthesisObj.speak(currentUtterance);
+        } else {
+            responsiveVoice.speak(textToSpeak, "Bangla Bangladesh Female", {
+                rate: 0.9,
+                pitch: 1,
+                onend: handleSpeechEnd,
+                onerror: handleSpeechEnd
+            });
+        }
+        return;
+    }
+
+    const englishVoice = voices.find(v => v.lang.startsWith('en')) || null;
+    currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
+    if (englishVoice) currentUtterance.voice = englishVoice;
+    currentUtterance.lang = 'en-US';
+    currentUtterance.rate = 1;
+    currentUtterance.pitch = 1;
+    currentUtterance.onend = handleSpeechEnd;
+    currentUtterance.onerror = handleSpeechEnd;
+    speechSynthesisObj.speak(currentUtterance);
+}
+
+function stopSpeech() {
+    if (speechSynthesisObj.speaking) speechSynthesisObj.cancel();
+    if (window.responsiveVoice && responsiveVoice.isPlaying()) responsiveVoice.cancel();
+    handleSpeechEnd();
+}
+
+function handleSpeechEnd() {
+    isCurrentlySpeaking = false;
+    document.getElementById('ttsButton')?.classList.remove('hidden');
+    document.getElementById('stopTtsButton')?.classList.add('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Remove any hover event listeners that might trigger speech
+    document.querySelectorAll('a, .news-item, .article-item').forEach(element => {
+        element.removeEventListener('mouseenter', playSpeech);
+        element.removeEventListener('mouseover', playSpeech);
+    });
+});
+</script>
+{{-- if cursor moved fast, speech only plays on explicit button click start --}}
+
+
+{{-- new  script start  with api. working both for bangla and english --}}
+
+
 
                     {{-- ***************working  code start for print ******************* --}}
        
@@ -433,47 +520,16 @@ img {
 
 
     {{-- download button  code start   --}}
-   
+{{--    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-
-
 <script>
-    // old function working ************************
-// function downloadSocialCard() {
-    
-//     const title = document.querySelector('h1').innerText;
-    
-//     // Getting the image
-//     let imageUrl = '';
-//     const imageElement = document.querySelector('figure.printable-image img') || 
-//                         document.querySelector('figure.mb-8 img') || 
-//                         document.querySelector('figure img') ||
-//                         document.querySelector('.printable-image img');
-    
-//     if (imageElement) {
-//         imageUrl = imageElement.src; 
-//     }
-    
-//     const logoUrl = `{{ asset('assets/logo4.png') }}`; 
-//     const siteName = `{{ config('app.name', 'News Site') }}`;
-//     const websiteUrl = window.location.origin;
-    
-    
-//     const cardContainer = document.createElement('div');
-//     cardContainer.style.position = 'fixed';
-//     cardContainer.style.left = '-9999px';
-//     cardContainer.style.top = '0';
-//     document.body.appendChild(cardContainer);
-// old function end ******************************************
 
-// new function 
 function downloadSocialCard() {
     
     const title = document.querySelector('h1').innerText;
     const newsId = "{{ $newsDetail->id }}"; 
     
-    // Getting the image
+    
     let imageUrl = '';
     const imageElement = document.querySelector('figure.printable-image img') || 
                         document.querySelector('figure.mb-8 img') || 
@@ -494,75 +550,7 @@ function downloadSocialCard() {
     cardContainer.style.left = '-9999px';
     cardContainer.style.top = '0';
     document.body.appendChild(cardContainer);
-    
-   
-// new function end 
-    
-    // the card HTML
-//   cardContainer.innerHTML = `
-//     <div id="social-card" style="max-width: 800px; width: 100%;  font-family:'Hind Siliguri', Arial, sans-serif; margin: 0 auto;">
-//         <!-- Image Section with Logo Overlay (Black BORDER) -->
-//         <div style="position: relative; border: 8px solid #000; overflow: hidden;">
-//             <img src="${imageUrl}" style="width: 100%; height: auto; min-height: 250px; max-height: 600px; object-fit: cover; display: block;" crossorigin="anonymous">
-            
-//             <!-- Logo Overlay (Top Right) -->
-//             <div style="position: absolute; top: 10px; right: 10px; z-index: 10;  padding: 8px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
-//                 <img src="${logoUrl}" style="width: clamp(80px, 15vw, 150px); height: auto; display: block;" crossorigin="anonymous">
-//             </div>
-//         </div>
-        
-//    <!-- Headline + Comment Section  -->
-// <div style="background: #003366; padding: clamp(15px, 4vw, 30px) clamp(15px, 4vw, 30px) clamp(15px, 3vw, 25px); color: white; text-align: center;">
-//     <!-- Headline -->
-//     <h1 style="font-size: clamp(18px, 4vw, 32px); font-weight: bold; margin: 0 0 clamp(15px, 3vw, 20px) 0; line-height: 1.4; word-wrap: break-word;">
-//         ${title.replace(/</g, '&lt;').replace(/>/g, '&gt;')}
-//     </h1>
-    
-//     <!-- Comment Text -->
-//     <p style="font-size: clamp(14px, 2.5vw, 20px); margin: 0; font-weight: 500;">
-//         >> বিস্তারিত সংবাদ কমেন্ট সেকশনে দেখুন << 
-//     </p>
-// </div>
-
-
-// <!-- Social Media Links (BLUE BACKGROUND) -->
-// <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-// <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
-// <div style="background: #003366; padding: clamp(15px, 3vw, 25px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(15px, 3vw, 40px); margin-top: -1rem;">
-
-//     <!-- Facebook -->
-//     <div style="display: flex; align-items: center; gap: 10px; color: white;">
-//         <i class="fab fa-facebook-f" style="font-size: clamp(18px, 3vw, 26px);"></i>
-//         <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">/trustnewspressbd</span>
-//     </div>
-
-//     <!-- YouTube -->
-//     <div style="display: flex; align-items: center; gap: 10px; color: white;">
-//         <i class="fab fa-youtube" style="font-size: clamp(18px, 3vw, 26px);"></i>
-//         <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">/@trustnews-bd</span>
-//     </div>
-
-//     <!-- Website -->
-//     <div style="display: flex; align-items: center; gap: 10px; color: white;">
-//         <i class="fa-solid fa-globe" style="font-size: clamp(18px, 3vw, 26px);"></i>
-//         <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">trustnews.press</span>
-//     </div>
-// </div>
-
-// <!-- Responsive Fix -->
-// <style>
-//         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
-
-//         #social-card {
-//           font-family: 'Hind Siliguri', sans-serif !important;
-//         }
-//       </style>
-
-// `;
-
-// testing code start for any size image 
+     
 cardContainer.innerHTML = `
   <div id="social-card" 
     style="max-width: 800px; width: 100%; font-family:'Hind Siliguri', Arial, sans-serif; margin: 0 auto; display: flex; flex-direction: column;">
@@ -631,13 +619,7 @@ cardContainer.innerHTML = `
   </div>
 `;
 
-// testing code end  for any size image.
 
-
-
-    
-
-    // Wait for images to load
     const images = cardContainer.querySelectorAll('img');
     let loadedImages = 0;
     const totalImages = images.length;
@@ -658,14 +640,13 @@ cardContainer.innerHTML = `
         }
     });
     
-    // If no images, generate immediately
+   
     if (totalImages === 0) {
         generateImage();
     }
     
 
-    //    working function  for download
-
+    
     function generateImage() {
     const card = document.getElementById('social-card');
     
@@ -694,47 +675,238 @@ cardContainer.innerHTML = `
     });
 }
 
-// working function  to download end 
+}
+</script> --}}
 
-// to see the preview function start 
-//           function generateImage() {
-//     const card = document.getElementById('social-card');
-    
-//     // PREVIEW MODE: Show the card on screen instead of hidden
-//     cardContainer.style.position = 'fixed';
-//     cardContainer.style.left = '50%';
-//     cardContainer.style.top = '50%';
-//     cardContainer.style.transform = 'translate(-50%, -50%)';
-//     cardContainer.style.zIndex = '9999';
-//     cardContainer.style.boxShadow = '0 0 50px rgba(0,0,0,0.5)';
-//     cardContainer.style.maxWidth = '90vw';
-//     cardContainer.style.maxHeight = '90vh';
-//     cardContainer.style.overflow = 'auto';
-    
-//     // Add close button
-//     const closeBtn = document.createElement('button');
-//     closeBtn.innerHTML = '❌ Close';
-//     closeBtn.style.position = 'fixed';
-//     closeBtn.style.top = '20px';
-//     closeBtn.style.right = '20px';
-//     closeBtn.style.zIndex = '10000';
-//     closeBtn.style.padding = '10px 20px';
-//     closeBtn.style.background = '#dc2626';
-//     closeBtn.style.color = 'white';
-//     closeBtn.style.border = 'none';
-//     closeBtn.style.borderRadius = '5px';
-//     closeBtn.style.cursor = 'pointer';
-//     closeBtn.style.fontSize = '16px';
-//     closeBtn.onclick = () => {
-//         document.body.removeChild(cardContainer);
-//         document.body.removeChild(closeBtn);
-//     };
-//     document.body.appendChild(closeBtn);
 
-// }
-    // to see the preview function  end 
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+
+
+function showToaster(message, duration = 3000) {
+    const toaster = document.createElement('div');
+    toaster.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 24px;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        z-index: 9999;
+        animation: slideIn 0.3s ease-in-out;
+    `;
+    toaster.textContent = message;
+    document.body.appendChild(toaster);
+    
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+    `;
+    if (!document.querySelector('style[data-toaster]')) {
+        style.setAttribute('data-toaster', 'true');
+        document.head.appendChild(style);
+    }
+    
+    setTimeout(() => {
+        toaster.style.animation = 'slideOut 0.3s ease-in-out';
+        setTimeout(() => {
+            document.body.removeChild(toaster);
+        }, 300);
+    }, duration);
+}
+
+function downloadSocialCard() {
+    
+    
+    showToaster('⏳ Download in progress...');
+    
+    const title = document.querySelector('h1').innerText;
+    const newsId = "{{ $newsDetail->id }}"; 
+    
+    
+    let imageUrl = '';
+    const imageElement = document.querySelector('figure.printable-image img') || 
+                        document.querySelector('figure.mb-8 img') || 
+                        document.querySelector('figure img') ||
+                        document.querySelector('.printable-image img');
+    
+    if (imageElement) {
+        imageUrl = imageElement.src; 
+    }
+    
+    const logoUrl = `{{ asset('assets/logo4.png') }}`; 
+    const siteName = `{{ config('app.name', 'News Site') }}`;
+    const websiteUrl = window.location.origin;
+    
+    
+    const cardContainer = document.createElement('div');
+    cardContainer.style.position = 'fixed';
+    cardContainer.style.left = '-9999px';
+    cardContainer.style.top = '0';
+    document.body.appendChild(cardContainer);
+     
+cardContainer.innerHTML = `
+  <div id="social-card" 
+    style="max-width: 800px; width: 100%; font-family:'Hind Siliguri', Arial, sans-serif; margin: 0 auto; display: flex; flex-direction: column;">
+
+    <!-- Image Section with Logo Overlay (Black BORDER) -->
+    <div style="position: relative; border: 8px solid #000; overflow: hidden; flex-shrink: 0;">
+        <img src="${imageUrl}" 
+             style="width: 100%; height: auto; max-height: 500px; object-fit: contain; display: block;" 
+             crossorigin="anonymous">
+
+        <!-- Logo Overlay (Top Right) -->
+        <div style="position: absolute; top: 10px; right: 10px; z-index: 10; padding: 8px; border-radius: 8px; ">
+            <img src="${logoUrl}" 
+                 style="width: clamp(80px, 15vw, 150px); height: auto; display: block;" 
+                 crossorigin="anonymous">
+        </div>
+    </div>
+    
+    <!-- Headline + Comment Section -->
+    <div style="background: #003366; padding: clamp(15px, 4vw, 30px) clamp(15px, 4vw, 30px) clamp(15px, 3vw, 25px); color: white; text-align: center; flex-shrink: 0;">
+       <h1 style="font-size: clamp(16px, 3vw, 26px); font-weight: bold; margin: 0 0 clamp(15px, 3vw, 20px) 0; line-height: 1.4; word-wrap: break-word;">
+    
+            ${title
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .split(' ')
+        .slice(0, 7)
+        .join(' ')}${title.split(' ').length > 7 ? '…' : ''}
+        </h1>
+        <p style="font-size: clamp(14px, 2.5vw, 20px); margin: 0; font-weight: 500; white-space: nowrap;">
+            &gt;&gt; বিস্তারিত সংবাদ কমেন্ট সেকশনে দেখুন &lt;&lt;
+        </p>
+    </div>
+
+    <!-- Social Media Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <div style="background: #003366; padding: clamp(15px, 3vw, 25px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(15px, 3vw, 40px); flex-shrink: 0;">
+
+        <!-- Facebook -->
+        <div style="display: flex; align-items: center; gap: 10px; color: white;">
+            <i class="fab fa-facebook-f" style="font-size: clamp(18px, 3vw, 26px);"></i>
+            <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">/trustnewspressbd</span>
+        </div>
+
+        <!-- YouTube -->
+        <div style="display: flex; align-items: center; gap: 10px; color: white;">
+            <i class="fab fa-youtube" style="font-size: clamp(18px, 3vw, 26px);"></i>
+            <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500; px-1">/@trustnews-bd</span>
+        </div>
+
+        <!-- Website -->
+        <div style="display: flex; align-items: center; gap: 10px; color: white;">
+            <i class="fa-solid fa-globe" style="font-size: clamp(18px, 3vw, 26px);"></i>
+            <span style="font-size: clamp(12px, 2vw, 18px); font-weight: 500;">trustnews.press</span>
+        </div>
+    </div>
+
+    <!-- Responsive Fix -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+        #social-card {
+          font-family: 'Hind Siliguri', sans-serif !important;
+        }
+    </style>
+  </div>
+`;
+
+
+    const images = cardContainer.querySelectorAll('img');
+    let loadedImages = 0;
+    const totalImages = images.length;
+    
+    const checkImagesLoaded = () => {
+        loadedImages++;
+        if (loadedImages === totalImages) {
+            generateImage();
+        }
+    };
+    
+    images.forEach(img => {
+        if (img.complete) {
+            checkImagesLoaded();
+        } else {
+            img.onload = checkImagesLoaded;
+            img.onerror = checkImagesLoaded;
+        }
+    });
+    
+   
+    if (totalImages === 0) {
+        generateImage();
+    }
+    
+
+    
+    function generateImage() {
+    const card = document.getElementById('social-card');
+    
+    html2canvas(card, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#ffffff'
+    }).then(canvas => {
+    
+        canvas.toBlob(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            
+            
+            a.download = `${newsId}.png`;
+
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Show success toaster
+            showToaster('✓ Download completed successfully!', 3000);
+            
+            document.body.removeChild(cardContainer);
+        });
+    });
+}
+
 }
 </script>
+
+
+
+
+
+
        
     {{-- download button code  end  --}}
 
@@ -827,7 +999,7 @@ cardContainer.innerHTML = `
  {{-- old working code for news details image end  original end   --}}
 
  {{-- new code testing one start  --}}
-@php
+{{-- @php
     $defaultImage = asset('assets/news-details-view.png');
     $largeImage   = $newsDetail->photoLibrary->large_image ?? null;
 
@@ -874,11 +1046,74 @@ cardContainer.innerHTML = `
 
 <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400 italic text-center">
     {{ $newsDetail->image_title }}
-</figcaption>
+</figcaption> --}}
 
          {{-- new code testing one end  --}}
 
 
+         {{-- another code for this section start --}}
+      @php
+    $defaultImage = asset('assets/news-details-view.png');
+    $largeImage   = $newsDetail->photoLibrary->large_image ?? null;
+
+    if ($largeImage) {
+        $imagePath = ltrim(str_replace(['public/', 'storage/'], '', $largeImage), '/');
+        if (!\Illuminate\Support\Str::startsWith($imagePath, 'uploads/photo-library')) {
+            $imagePath = 'uploads/photo-library/' . $imagePath;
+        }
+        $src = asset($imagePath);
+    } else {
+        $src = $defaultImage;
+    }
+
+    $headline = $newsDetail->title ?? '';
+    $headlineWords = explode(' ', strip_tags($headline));
+    $shortHeadline = implode(' ', array_slice($headlineWords, 0, 6));
+    if (count($headlineWords) > 6) {
+        $shortHeadline .= '…';
+    }
+@endphp
+
+<figure class="mb-8 relative w-full max-h-[550px] overflow-hidden border-8 border-black bg-gray-200">
+ 
+    <div class="absolute inset-0 bg-yellow-100 opacity-20 z-0"></div>
+    
+    <img class="w-full h-auto max-h-[550px] object-contain block relative z-1" 
+         src="{{ $src }}" 
+         alt="{{ $newsDetail->image_alt ?? 'News Image' }}">
+
+   
+    <div class="absolute top-0 right-0 w-full flex justify-end px-4 py-3 z-10">
+        <img src="{{ asset('assets/logo4.png') }}" 
+             alt="Logo" 
+             class="w-[100px] md:w-[140px] h-auto">
+    </div>
+ 
+{{-- <div class="absolute bottom-0 left-0 w-full bg-blue-900 
+    px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 
+    text-white text-center z-10">
+    <h1 class="text-xs sm:text-sm md:text-lg lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold leading-snug">
+        {{ $shortHeadline }}
+    </h1>
+</div> --}}
+
+<div class="absolute bottom-0 left-0 w-full bg-blue-900 
+    px-2 py-1 sm:px-3 sm:py-2 md:px-5 md:py-3 lg:px-6 lg:py-4 xl:px-8 xl:py-5 
+    text-white text-center z-10 transition-all duration-300">
+    
+    <h1 class="text-sm sm:text-base md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 
+        font-bold leading-snug break-words transition-all duration-300">
+        {{ $shortHeadline }}
+    </h1>
+</div>
+
+</figure>
+
+<figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400 italic text-center">
+    {{ $newsDetail->image_title }}
+</figcaption>
+         
+         {{-- another code for this section end --}}
                 
 
                 <div id="news-content" class="text-base prose-content" style="margin-top:1rem">

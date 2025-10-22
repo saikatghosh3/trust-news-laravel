@@ -52,6 +52,7 @@
                                     <div class="card mb-4">
                                         <div class="card-header">
                                             <div class="d-flex justify-content-between align-items-center">
+                                                
                                                 <div>
                                                     <h6 class="fs-17 font-weight-600 mb-0">
                                                         {{ localize('insert_image') }}</h6>

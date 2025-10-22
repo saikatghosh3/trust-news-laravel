@@ -23,6 +23,7 @@
             </svg>
         </a>
         <a target="_blank"
+        
             class="w-8 h-8 md:w-10 md:h-10 text-white flex justify-center items-center group rounded-full p-1 hover:text-social-instragram ring-1 ring-white hover:ring-2 hover:ring-social-instragram transition-all duration-300 ease-in-out"
             href="{{ $socialLinks->instagram->link ?? 'href="https://www.instragram.com/' }}">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,5 +41,6 @@
                     fill="currentColor" />
             </svg>
         </a>
+        
     </div>
 </div>

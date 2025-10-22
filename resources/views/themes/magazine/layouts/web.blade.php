@@ -40,7 +40,7 @@
 
     {{-- Set CSS Variables --}}
     {{-- page loader css  --}}
-   <style>
+   {{-- <style>
 @import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans');
 
 .loading-text-word {
@@ -49,7 +49,7 @@
     font-family: 'Quattrocento Sans', sans-serif;
 }
 
-/* Sequential delay for each letter */
+
 .loading-text-word:nth-child(1) { animation-delay: 0s; }
 .loading-text-word:nth-child(2) { animation-delay: 0.2s; }
 .loading-text-word:nth-child(3) { animation-delay: 0.4s; }
@@ -62,7 +62,46 @@
     0% { filter: blur(0px); opacity: 1; }
     100% { filter: blur(4px); opacity: 0.6; }
 }
+</style> --}}
+
+     {{-- responive loader  css start  --}}
+     <style>
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap');
+
+
+.loading-text-word {
+  display: inline-block;
+  font-family: 'Quattrocento Sans', sans-serif;
+  animation: blurText 1.5s linear infinite alternate;
+}
+
+.loading-text-word:nth-child(1) { animation-delay: 0s; }
+.loading-text-word:nth-child(2) { animation-delay: 0.2s; }
+.loading-text-word:nth-child(3) { animation-delay: 0.4s; }
+.loading-text-word:nth-child(4) { animation-delay: 0.6s; }
+.loading-text-word:nth-child(5) { animation-delay: 0.8s; }
+.loading-text-word:nth-child(6) { animation-delay: 1s; }
+.loading-text-word:nth-child(7) { animation-delay: 1.2s; }
+
+@keyframes blurText {
+  0% { filter: blur(0px); opacity: 1; }
+  100% { filter: blur(4px); opacity: 0.6; }
+}
+
+
+#pageLoader {
+  transition: opacity 0.5s ease;
+}
+body.loading-active {
+  overflow: hidden;
+  height: 100vh;
+}
 </style>
+
+     {{-- responive loader  css end  --}}
+
+
+
     {{-- page loader css end  --}}
     
 
@@ -94,7 +133,7 @@
     @if (!$themeSettings->is_default && $themeSettings->font_family) style="font-family: {{ $themeSettings->font_family }};" @endif>
      
     {{-- page loader  --}}
-    <div id="pageLoader" class="loading fixed inset-0 bg-black flex items-center justify-center z-50">
+    {{-- <div id="pageLoader" class="loading fixed inset-0 bg-black flex items-center justify-center z-50">
     <div class="loading-text flex space-x-1 text-white text-4xl font-sans">
         <span class="loading-text-word">L</span>
         <span class="loading-text-word">O</span>
@@ -104,7 +143,26 @@
         <span class="loading-text-word">N</span>
         <span class="loading-text-word">G</span>
     </div>
+</div> --}}
+
+
+  {{-- responsive loader start  --}}
+  
+<div id="pageLoader" class="fixed inset-0 flex items-center justify-center bg-black z-50">
+  <div class="flex space-x-1 text-white text-4xl sm:text-5xl font-bold">
+    <span class="loading-text-word">L</span>
+    <span class="loading-text-word">O</span>
+    <span class="loading-text-word">A</span>
+    <span class="loading-text-word">D</span>
+    <span class="loading-text-word">I</span>
+    <span class="loading-text-word">N</span>
+    <span class="loading-text-word">G</span>
+  </div>
 </div>
+
+  {{-- responsive loader end  --}}
+
+
     {{-- page loader end  --}}
       
     @include('themes.magazine.components.common.login')
@@ -176,11 +234,11 @@
 
 
     {{-- page loader section script start--}}
-        <script>
+        {{-- <script>
 window.addEventListener('load', () => {
     const loader = document.getElementById('pageLoader');
     if(loader) {
-        // Add fade-out transition
+      
         loader.style.transition = "opacity 0.5s ease";
         loader.style.opacity = 0;
         setTimeout(() => {
@@ -188,7 +246,29 @@ window.addEventListener('load', () => {
         }, 500);
     }
 });
+</script> --}}
+
+{{-- responsive loader script  start  --}}
+      <script>
+ 
+  document.body.classList.add('loading-active');
+
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('pageLoader');
+    document.body.classList.remove('loading-active');
+
+    if (loader) {
+      loader.style.opacity = '0'; 
+      setTimeout(() => {
+        loader.style.display = 'none'; 
+      }, 500); 
+    }
+  });
 </script>
+
+{{-- responsive loader script  end  --}}
+
+
      {{-- page loader  section script end  --}}
 
     <script src="{{ \App\Helpers\ThemeHelper::asset('plugins/swiper/js/swiper-bundle.min.js') }}"></script>

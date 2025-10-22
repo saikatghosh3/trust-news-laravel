@@ -46,10 +46,11 @@
 
 
       {{-- fixed code for dark and light mode --}}
+      
 
-      <div class="xl:hidden">
+
+<div class="flex_center justify-center pl-4 logo-custom">
     <!-- Dark mode logo -->
-    
     <a class="hidden dark:block w-32 h-12 flex_center" href="{{ __url('/') }}">
         <img src="{{ app_setting()->footer_logo }}" alt="Brand logo dark" class="max-h-full object-contain" />
     </a>
@@ -59,7 +60,15 @@
         <img src="{{ app_setting()->logo }}" alt="Brand logo light" class="max-h-full object-contain" />
     </a>
 </div>
+<style>
+@media (min-width: 1240px) {
+  .logo-custom {
+    display: none !important;
+  }
+}
+</style>
 
+   {{-- fixed code for dark and light mode  end --}}
 
 
         <!-- Right section  -->

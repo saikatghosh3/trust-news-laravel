@@ -128,7 +128,8 @@
 @section('content')
     <div class="row justify-content-start">
         @foreach ($themes as $index => $theme)
-            @if ($index == 1 || $index == 2)  {{-- Only show 2nd and 3rd theme --}}
+            {{-- @if ($index == 1 || $index == 2)  Only show 2nd and 3rd theme --}}
+            @if ( $index == 2)  {{-- Only  show  3rd theme --}}
                 <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
                     <div class="layout-item">
                         <form action="{{ route('themes.updateActive') }}" method="POST">
